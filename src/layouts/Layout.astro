@@ -65,6 +65,36 @@ const jsonLd = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
+    <!-- Firebase Analytics -->
+    <script type="module" is:inline>
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js';
+      import { getAnalytics, isSupported } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js';
+
+      const firebaseConfig = {
+        apiKey: 'AIzaSyCIBvuYj4N303cMYf0LDgZsEAoGKbc2gz8',
+        authDomain: 'ai-connect-kerala-website.firebaseapp.com',
+        projectId: 'ai-connect-kerala-website',
+        storageBucket: 'ai-connect-kerala-website.firebasestorage.app',
+        messagingSenderId: '739002749604',
+        appId: '1:739002749604:web:2cd77c353844d317234c31',
+        measurementId: 'G-LFT4FX8YFV',
+      };
+
+      const startAnalytics = async () => {
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+
+        try {
+          if (!(await isSupported())) return;
+          const app = initializeApp(firebaseConfig);
+          getAnalytics(app);
+        } catch {
+          // Ignore analytics startup failures in unsupported browsers or blocked contexts.
+        }
+      };
+
+      startAnalytics();
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
