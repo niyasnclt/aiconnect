@@ -1,13 +1,14 @@
 ---
+import { Icon } from 'astro-icon/components';
 const people = [
-  { icon: '👨‍💻', title: 'Developers', text: 'Build AI-powered products and explore new frameworks.' },
-  { icon: '🧪', title: 'Testers', text: 'Understand AI testing strategies and quality assurance.' },
-  { icon: '🎨', title: 'Designers', text: 'Discover how AI is reshaping UX and design workflows.' },
-  { icon: '📊', title: 'Product Managers', text: 'Learn to integrate AI into product strategy and roadmaps.' },
-  { icon: '🎓', title: 'Students', text: 'Kickstart your AI journey with mentors and peers.' },
-  { icon: '🚀', title: 'Founders', text: 'Build AI-first startups with community support.' },
-  { icon: '🔬', title: 'Researchers', text: 'Share findings and collaborate on AI research projects.' },
-  { icon: '🤖', title: 'AI Enthusiasts', text: 'Anyone curious about the future of artificial intelligence.' },
+  { icon: 'lucide:code-2', title: 'Developers', text: 'Build AI-powered products and explore new frameworks.' },
+  { icon: 'lucide:flask-conical', title: 'Testers', text: 'Understand AI testing strategies and quality assurance.' },
+  { icon: 'lucide:pen-tool', title: 'Designers', text: 'Discover how AI is reshaping UX and design workflows.' },
+  { icon: 'lucide:bar-chart-2', title: 'Product Managers', text: 'Learn to integrate AI into product strategy and roadmaps.' },
+  { icon: 'lucide:graduation-cap', title: 'Students', text: 'Kickstart your AI journey with mentors and peers.' },
+  { icon: 'lucide:rocket', title: 'Founders', text: 'Build AI-first startups with community support.' },
+  { icon: 'lucide:microscope', title: 'Researchers', text: 'Share findings and collaborate on AI research projects.' },
+  { icon: 'lucide:bot', title: 'AI Enthusiasts', text: 'Anyone curious about the future of artificial intelligence.' },
 ];
 ---
 
@@ -22,7 +23,7 @@ const people = [
     <div class="who-grid" data-reveal-stagger="55">
       {people.map((p) => (
         <article class="card who-card">
-          <span class="who-icon" aria-hidden="true">{p.icon}</span>
+          <span class="who-icon" aria-hidden="true"><Icon name={p.icon} class="who-icon-svg" /></span>
           <h3>{p.title}</h3>
           <p>{p.text}</p>
         </article>
@@ -47,8 +48,18 @@ const people = [
     border-color: rgba(168, 85, 247, 0.3);
   }
   .who-icon {
-    font-size: 32px;
-    line-height: 1;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(24, 119, 242, 0.1), rgba(168, 85, 247, 0.1));
+    border: 1px solid rgba(168, 85, 247, 0.15);
+  }
+  .who-icon-svg {
+    width: 22px;
+    height: 22px;
+    color: var(--purple-600);
   }
   .who-card h3 {
     margin-top: 20px;

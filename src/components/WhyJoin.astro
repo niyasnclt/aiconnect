@@ -1,9 +1,10 @@
 ---
+import { Icon } from 'astro-icon/components';
 const reasons = [
-  { icon: '📚', title: 'Learn', text: 'Stay updated with the latest AI tools and trends through curated content and expert sessions.' },
-  { icon: '🔗', title: 'Connect', text: 'Meet professionals, researchers, and founders from across Kerala and beyond.' },
-  { icon: '🛠️', title: 'Build', text: 'Collaborate on projects and ideas with a talented, motivated community.' },
-  { icon: '📈', title: 'Grow', text: 'Advance your skills and career with mentorship, workshops, and real-world experience.' },
+  { icon: 'lucide:book-open', title: 'Learn', text: 'Stay updated with the latest AI tools and trends through curated content and expert sessions.' },
+  { icon: 'lucide:link', title: 'Connect', text: 'Meet professionals, researchers, and founders from across Kerala and beyond.' },
+  { icon: 'lucide:wrench', title: 'Build', text: 'Collaborate on projects and ideas with a talented, motivated community.' },
+  { icon: 'lucide:trending-up', title: 'Grow', text: 'Advance your skills and career with mentorship, workshops, and real-world experience.' },
 ];
 ---
 
@@ -17,7 +18,7 @@ const reasons = [
     <div class="why-grid" data-reveal-stagger="80">
       {reasons.map((r) => (
         <article class="card why-card">
-          <span class="why-icon" aria-hidden="true">{r.icon}</span>
+          <span class="why-icon" aria-hidden="true"><Icon name={r.icon} class="why-icon-svg" /></span>
           <h3>{r.title}</h3>
           <p>{r.text}</p>
         </article>
@@ -51,9 +52,13 @@ const reasons = [
     width: 56px;
     height: 56px;
     border-radius: 16px;
-    font-size: 26px;
     background: linear-gradient(135deg, rgba(24, 119, 242, 0.12), rgba(168, 85, 247, 0.12));
     border: 1px solid rgba(168, 85, 247, 0.18);
+  }
+  .why-icon-svg {
+    width: 26px;
+    height: 26px;
+    color: var(--purple-600);
   }
   .why-card h3 {
     margin-top: 24px;

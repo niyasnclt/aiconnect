@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { social } from '../data/site';
 
 const avatars = [
@@ -10,10 +11,10 @@ const avatars = [
 ];
 
 const tags = [
-  { icon: '🧠', label: 'Machine Learning', pos: 'tl' },
-  { icon: '✨', label: 'GenAI', pos: 'tr' },
-  { icon: '🤖', label: 'LLMs & Agents', pos: 'ml' },
-  { icon: '🔬', label: 'AI Research', pos: 'br' },
+  { icon: 'lucide:brain', label: 'Machine Learning', pos: 'tl' },
+  { icon: 'lucide:sparkles', label: 'GenAI', pos: 'tr' },
+  { icon: 'lucide:bot', label: 'LLMs & Agents', pos: 'ml' },
+  { icon: 'lucide:microscope', label: 'AI Research', pos: 'br' },
 ];
 ---
 
@@ -105,7 +106,7 @@ const tags = [
 
         {tags.map((t) => (
           <span class={`float-tag tag-${t.pos}`}>
-            <span class="float-emoji">{t.icon}</span>
+            <Icon name={t.icon} class="float-icon" aria-hidden="true" />
             {t.label}
           </span>
         ))}
@@ -287,8 +288,11 @@ const tags = [
     white-space: nowrap;
     animation: float 5s ease-in-out infinite;
   }
-  .float-emoji {
-    font-size: 15px;
+  .float-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--purple-600);
   }
   .tag-tl { left: 5%; top: 12%; }
   .tag-tr { right: 7%; top: 24%; animation-delay: -1.4s; }
