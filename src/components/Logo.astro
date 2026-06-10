@@ -1,84 +1,31 @@
 ---
-/**
- * Brand logo: a gradient "AI" monogram with a spark accent, the "Connect"
- * wordmark, and the Malayalam "കേരളം" lockup.
- *
- * variant: "dark"  → for light backgrounds (default)
- *          "light" → for dark backgrounds (footer / CTA)
- */
 interface Props {
   variant?: 'dark' | 'light';
   size?: number;
 }
+
 const { variant = 'dark', size = 40 } = Astro.props;
-const gid = `logoGrad-${Math.random().toString(36).slice(2, 8)}`;
+const logoSrc = variant === 'light' ? '/logo-footer.svg' : '/AI-con-Logo.svg';
 ---
 
-<a class:list={['logo', variant]} href="#top" aria-label="AI Connect Kerala — home">
-  <svg
-    class="logo-mark"
-    width={size}
-    height={size}
-    viewBox="0 0 52 46"
-    fill="none"
-    role="img"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <defs>
-      <linearGradient id={gid} x1="0" y1="0" x2="52" y2="46" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#1877F2" />
-        <stop offset="0.5" stop-color="#A855F7" />
-        <stop offset="1" stop-color="#EC4899" />
-      </linearGradient>
-    </defs>
-    <path
-      d="M5 41 L18 7 L31 41"
-      stroke={`url(#${gid})`}
-      stroke-width="6.5"
-      stroke-linejoin="round"
-      stroke-linecap="round"
-    />
-    <path d="M10.5 30 H25.5" stroke={`url(#${gid})`} stroke-width="6.5" stroke-linecap="round" />
-    <path d="M44 11 V41" stroke={`url(#${gid})`} stroke-width="6.5" stroke-linecap="round" />
-    <path
-      d="M43.5 1.5c.4 3.6.9 4.1 4.5 4.5-3.6.4-4.1.9-4.5 4.5-.4-3.6-.9-4.1-4.5-4.5 3.6-.4 4.1-.9 4.5-4.5Z"
-      fill={`url(#${gid})`}
-    />
-  </svg>
-  <span class="logo-words">
-    <span class="logo-connect grad-text">Connect</span>
-    <span class="logo-mal">കേരളം</span>
-  </span>
+<a class:list={['logo', variant]} href="#top" aria-label="AI Connect Kerala home" style={`--logo-height:${size}px`}>
+  <img class="logo-image" src={logoSrc} alt="AI Connect Keralam" loading="eager" decoding="async" />
 </a>
 
 <style>
   .logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
   }
-  .logo-mark {
-    flex-shrink: 0;
+
+  .logo-image {
+    display: block;
+    height: var(--logo-height);
+    width: auto;
+    max-width: min(44vw, 240px);
   }
-  .logo-words {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-  .logo-connect {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: -0.01em;
-  }
-  .logo-mal {
-    font-family: var(--font-mal);
-    font-size: 15px;
-    color: var(--ink-2);
-    margin-top: 3px;
-  }
-  .logo.light .logo-mal {
-    color: #e2e8f0;
+
+  .logo.light .logo-image {
+    max-width: min(56vw, 280px);
   }
 </style>
