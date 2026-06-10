@@ -108,6 +108,11 @@ import { navLinks, social } from '../data/site';
     border-bottom: 1px solid var(--border);
     background: #fff;
   }
+  /* `.nav-mobile` sets display:flex, which would otherwise override the
+     browser's default [hidden] { display: none }. This restores it. */
+  .nav-mobile[hidden] {
+    display: none;
+  }
   .nav-mobile a:not(.btn) {
     padding: 12px 4px;
     font-size: 16px;
