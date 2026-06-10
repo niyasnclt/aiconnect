@@ -1,0 +1,357 @@
+---
+import { social } from '../data/site';
+
+const avatars = [
+  { initial: 'A', from: '#1877f2', to: '#3b82f6' },
+  { initial: 'R', from: '#a855f7', to: '#7c3aed' },
+  { initial: 'S', from: '#ec4899', to: '#db2777' },
+  { initial: 'N', from: '#10b981', to: '#059669' },
+  { initial: 'P', from: '#f59e0b', to: '#f97316' },
+];
+
+const tags = [
+  { icon: '🧠', label: 'Machine Learning', pos: 'tl' },
+  { icon: '✨', label: 'GenAI', pos: 'tr' },
+  { icon: '🤖', label: 'LLMs & Agents', pos: 'ml' },
+  { icon: '🔬', label: 'AI Research', pos: 'br' },
+];
+---
+
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <!-- Left -->
+    <div class="hero-copy" data-reveal-stagger="90">
+      <span class="badge">
+        <span class="badge-dot"></span>
+        Kerala's Fastest Growing AI Community
+      </span>
+
+      <h1>Connecting AI Builders Across&nbsp;<span class="grad-text">Kerala</span></h1>
+
+      <p class="hero-sub">
+        Join developers, designers, founders, students, and AI enthusiasts exploring the future of
+        Artificial Intelligence together.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href={social.whatsapp} target="_blank" rel="noopener">
+          Join Community
+        </a>
+        <a class="btn btn-ghost" href="#events">
+          Explore Events
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-social-proof">
+        <div class="avatars">
+          {avatars.map((a) => (
+            <span class="avatar" style={`background:linear-gradient(135deg, ${a.from}, ${a.to})`}>{a.initial}</span>
+          ))}
+        </div>
+        <p>Joined by <strong>500+</strong> professionals across Kerala</p>
+      </div>
+    </div>
+
+    <!-- Right: visual -->
+    <div class="hero-visual" aria-hidden="true" data-reveal="scale">
+      <div class="visual-card">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+
+        <svg class="net" viewBox="0 0 460 460" fill="none" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="netGrad" x1="0" y1="0" x2="460" y2="460" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1877F2" />
+              <stop offset="0.5" stop-color="#A855F7" />
+              <stop offset="1" stop-color="#EC4899" />
+            </linearGradient>
+          </defs>
+          <g stroke="url(#netGrad)" stroke-width="1.5" opacity="0.35">
+            <line x1="230" y1="230" x2="100" y2="80" />
+            <line x1="230" y1="230" x2="360" y2="90" />
+            <line x1="230" y1="230" x2="400" y2="240" />
+            <line x1="230" y1="230" x2="360" y2="380" />
+            <line x1="230" y1="230" x2="200" y2="400" />
+            <line x1="230" y1="230" x2="80" y2="350" />
+            <line x1="230" y1="230" x2="60" y2="210" />
+            <line x1="100" y1="80" x2="360" y2="90" />
+            <line x1="400" y1="240" x2="360" y2="380" />
+            <line x1="80" y1="350" x2="200" y2="400" />
+            <line x1="60" y1="210" x2="100" y2="80" />
+          </g>
+          <g fill="url(#netGrad)">
+            <circle cx="100" cy="80" r="7" />
+            <circle cx="360" cy="90" r="6" />
+            <circle cx="400" cy="240" r="7" />
+            <circle cx="360" cy="380" r="6" />
+            <circle cx="200" cy="400" r="7" />
+            <circle cx="80" cy="350" r="6" />
+            <circle cx="60" cy="210" r="7" />
+          </g>
+          <text x="230" y="230" class="net-ai" fill="url(#netGrad)" text-anchor="middle" dominant-baseline="central">AI</text>
+        </svg>
+
+        {tags.map((t) => (
+          <span class={`float-tag tag-${t.pos}`}>
+            <span class="float-emoji">{t.icon}</span>
+            {t.label}
+          </span>
+        ))}
+
+        <span class="live-pill">
+          <span class="live-dot"></span>
+          Community is Live
+          <span class="live-count">500+</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: 72px 88px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(60% 50% at 12% 8%, rgba(168, 85, 247, 0.12), transparent 60%),
+      radial-gradient(50% 45% at 92% 4%, rgba(236, 72, 153, 0.12), transparent 60%),
+      linear-gradient(180deg, #fbfcff 0%, #ffffff 60%);
+    z-index: -1;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    color: var(--purple-600);
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+  }
+
+  .hero-copy h1 {
+    margin-top: 22px;
+    font-size: clamp(38px, 5.4vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .hero-sub {
+    margin-top: 22px;
+    max-width: 520px;
+    font-size: 18px;
+    color: var(--text-2);
+  }
+  .hero-cta {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .hero-social-proof {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .avatars {
+    display: flex;
+  }
+  .avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-left: -10px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+  }
+  .avatar:first-child {
+    margin-left: 0;
+  }
+  .hero-social-proof p {
+    font-size: 14.5px;
+    color: var(--text-2);
+  }
+  .hero-social-proof strong {
+    color: var(--ink);
+  }
+
+  /* Visual */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+  .visual-card {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 56 / 62;
+    border-radius: var(--radius-xl);
+    background:
+      linear-gradient(160deg, rgba(24, 119, 242, 0.08), rgba(236, 72, 153, 0.08)),
+      #fff;
+    border: 1px solid rgba(168, 85, 247, 0.18);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(46px);
+    opacity: 0.55;
+  }
+  .blob-1 {
+    width: 60%;
+    height: 55%;
+    left: 18%;
+    top: 22%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.55), transparent 70%);
+  }
+  .blob-2 {
+    width: 38%;
+    height: 36%;
+    right: 6%;
+    bottom: 8%;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.5), transparent 70%);
+  }
+  .blob-3 {
+    width: 30%;
+    height: 28%;
+    left: 10%;
+    top: 6%;
+    background: radial-gradient(circle, rgba(24, 119, 242, 0.5), transparent 70%);
+  }
+  .net {
+    position: absolute;
+    inset: 8% 6%;
+    width: 88%;
+    height: 84%;
+  }
+  .net-ai {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 76px;
+    letter-spacing: -0.02em;
+  }
+
+  .float-tag {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-2);
+    white-space: nowrap;
+    animation: float 5s ease-in-out infinite;
+  }
+  .float-emoji {
+    font-size: 15px;
+  }
+  .tag-tl { left: 5%; top: 12%; }
+  .tag-tr { right: 7%; top: 24%; animation-delay: -1.4s; }
+  .tag-ml { left: 3%; top: 62%; animation-delay: -2.6s; }
+  .tag-br { right: 8%; bottom: 22%; animation-delay: -3.6s; }
+
+  .live-pill {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 12px 9px 16px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    box-shadow: var(--shadow-md);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    animation: pulse 2s infinite;
+  }
+  .live-count {
+    background: var(--brand-gradient);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .hero-visual {
+      order: -1;
+    }
+    .hero-sub {
+      max-width: none;
+    }
+  }
+  @media (max-width: 480px) {
+    .float-tag {
+      font-size: 12px;
+      padding: 8px 11px;
+    }
+    .net-ai {
+      font-size: 60px;
+    }
+  }
+</style>

@@ -1,0 +1,210 @@
+---
+import Logo from './Logo.astro';
+import { site, social } from '../data/site';
+
+const quickLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Community', href: '#who-its-for' },
+  { label: 'Events', href: '#events' },
+  { label: 'Why Join', href: '#why-join' },
+  { label: 'Contact', href: '#footer' },
+];
+
+const communityLinks = [
+  { label: 'WhatsApp Group', href: social.whatsapp },
+  { label: 'LinkedIn Page', href: social.linkedin },
+  { label: 'YouTube Channel', href: social.youtube },
+  { label: 'Instagram', href: social.instagram },
+];
+---
+
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <Logo variant="light" />
+        <p>Kerala's flagship AI community connecting builders, learners, and innovators.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Quick links">
+        <h2>Quick Links</h2>
+        <ul>
+          {quickLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Community">
+        <h2>Community</h2>
+        <ul>
+          {communityLinks.map((l) => (
+            <li><a href={l.href} target="_blank" rel="noopener">{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="footer-col footer-news">
+        <h2>Newsletter</h2>
+        <p class="news-copy">Get AI news and event updates delivered to your inbox.</p>
+        <form class="news-form" data-newsletter>
+          <label class="sr-only" for="news-email">Email address</label>
+          <input id="news-email" name="email" type="email" placeholder="Enter your email" required autocomplete="email" />
+          <button class="btn btn-primary btn-sm" type="submit">Subscribe</button>
+        </form>
+        <p class="news-status" data-newsletter-status role="status" aria-live="polite"></p>
+
+        <div class="footer-contact">
+          <span class="contact-label">Contact</span>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {site.founded} {site.name}. All rights reserved.</p>
+      <p class="made">Made with <span aria-hidden="true">❤️</span><span class="sr-only">love</span> in Kerala</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--dark-2);
+    color: #cbd5e1;
+    padding-block: 64px 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--dark-border);
+  }
+  .footer-brand p {
+    margin-top: 20px;
+    max-width: 240px;
+    font-size: 14.5px;
+    color: var(--muted);
+  }
+
+  .footer-col h2 {
+    color: #fff;
+    font-size: 16px;
+    font-family: var(--font-display);
+    margin-bottom: 20px;
+  }
+  .footer-col ul {
+    display: grid;
+    gap: 12px;
+  }
+  .footer-col a {
+    font-size: 14.5px;
+    color: #cbd5e1;
+    transition: color 0.18s ease;
+  }
+  .footer-col a:hover {
+    color: #fff;
+  }
+
+  .news-copy {
+    font-size: 14.5px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .news-form {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dark-border);
+    border-radius: 999px;
+  }
+  .news-form input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    padding: 8px 14px;
+    color: #fff;
+    font-size: 14px;
+    font-family: var(--font-body);
+  }
+  .news-form input::placeholder {
+    color: var(--muted);
+  }
+  .news-form input:focus {
+    outline: none;
+  }
+  .news-form .btn {
+    flex-shrink: 0;
+  }
+  .news-status {
+    min-height: 18px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #34d399;
+  }
+
+  .footer-contact {
+    margin-top: 24px;
+    display: grid;
+    gap: 8px;
+  }
+  .contact-label {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .footer-contact a {
+    font-size: 14.5px;
+    color: var(--muted);
+  }
+  .footer-contact a:hover {
+    color: #fff;
+  }
+
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 860px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .footer-brand,
+    .footer-news {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 520px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector('[data-newsletter]') as HTMLFormElement | null;
+  const status = document.querySelector('[data-newsletter-status]');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = form.querySelector('input') as HTMLInputElement;
+    if (input && input.checkValidity()) {
+      if (status) status.textContent = 'Thanks for subscribing! We\u2019ll be in touch.';
+      form.reset();
+    } else {
+      input?.reportValidity();
+    }
+  });
+</script>

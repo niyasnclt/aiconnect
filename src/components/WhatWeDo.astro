@@ -1,0 +1,92 @@
+---
+const items = [
+  { icon: '📅', title: 'Monthly Meetups', text: 'Regular gatherings in cities across Kerala to discuss, demo, and connect.' },
+  { icon: '🎤', title: 'Expert Talks', text: 'Industry leaders and researchers sharing cutting-edge AI insights.' },
+  { icon: '🛠️', title: 'AI Tool Discovery', text: 'Hands-on exploration of the latest AI tools and platforms.' },
+  { icon: '💻', title: 'Hands-on Sessions', text: 'Workshops and labs to build real skills in a collaborative environment.' },
+  { icon: '🤝', title: 'Networking Opportunities', text: 'Meet like-minded professionals, founders, and researchers.' },
+  { icon: '💬', title: 'Open Discussions', text: 'Inclusive spaces to discuss AI ethics, trends, and use cases.' },
+];
+---
+
+<section class="section what" id="what-we-do">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">What we do</span>
+      <h2>Built Around Learning &amp; Growth</h2>
+    </div>
+
+    <div class="what-grid" data-reveal-stagger="70">
+      {items.map((item) => (
+        <article class="card what-card">
+          <div class="what-icon" aria-hidden="true">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+          <span class="what-divider" aria-hidden="true"></span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .what {
+    background: var(--bg-soft);
+  }
+  .what-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .what-card {
+    padding: 32px;
+    border-radius: var(--radius-lg);
+  }
+  .what-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+  .what-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    background: linear-gradient(135deg, rgba(24, 119, 242, 0.1), rgba(236, 72, 153, 0.1));
+    border: 1px solid var(--border);
+  }
+  .what-card h3 {
+    margin-top: 22px;
+    font-size: 21px;
+  }
+  .what-card p {
+    margin-top: 12px;
+    font-size: 15.5px;
+    color: var(--text-2);
+  }
+  .what-divider {
+    display: block;
+    width: 36px;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--brand-gradient);
+    margin-top: 22px;
+    transition: width 0.25s ease;
+  }
+  .what-card:hover .what-divider {
+    width: 64px;
+  }
+
+  @media (max-width: 900px) {
+    .what-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .what-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

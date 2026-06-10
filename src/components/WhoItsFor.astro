@@ -1,0 +1,73 @@
+---
+const people = [
+  { icon: '👨‍💻', title: 'Developers', text: 'Build AI-powered products and explore new frameworks.' },
+  { icon: '🧪', title: 'Testers', text: 'Understand AI testing strategies and quality assurance.' },
+  { icon: '🎨', title: 'Designers', text: 'Discover how AI is reshaping UX and design workflows.' },
+  { icon: '📊', title: 'Product Managers', text: 'Learn to integrate AI into product strategy and roadmaps.' },
+  { icon: '🎓', title: 'Students', text: 'Kickstart your AI journey with mentors and peers.' },
+  { icon: '🚀', title: 'Founders', text: 'Build AI-first startups with community support.' },
+  { icon: '🔬', title: 'Researchers', text: 'Share findings and collaborate on AI research projects.' },
+  { icon: '🤖', title: 'AI Enthusiasts', text: 'Anyone curious about the future of artificial intelligence.' },
+];
+---
+
+<section class="section who" id="who-its-for">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Who it's for</span>
+      <h2>Community for Everyone</h2>
+      <p>No matter your background, if you are curious about AI, there is a place for you here.</p>
+    </div>
+
+    <div class="who-grid" data-reveal-stagger="55">
+      {people.map((p) => (
+        <article class="card who-card">
+          <span class="who-icon" aria-hidden="true">{p.icon}</span>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .who-card {
+    padding: 25px;
+    border-radius: var(--radius);
+  }
+  .who-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+  .who-icon {
+    font-size: 32px;
+    line-height: 1;
+  }
+  .who-card h3 {
+    margin-top: 20px;
+    font-size: 19px;
+  }
+  .who-card p {
+    margin-top: 10px;
+    font-size: 14.5px;
+    color: var(--text-2);
+  }
+
+  @media (max-width: 1000px) {
+    .who-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 520px) {
+    .who-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

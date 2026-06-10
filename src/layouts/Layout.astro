@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = site.title, description = site.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL(site.ogImage, site.url).href;
+
+// Structured data helps search engines understand the organisation + site.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${site.url}/#organization`,
+      name: site.name,
+      url: site.url,
+      email: site.email,
+      description: site.description,
+      foundingDate: site.founded,
+      areaServed: 'Kerala, India',
+      logo: ogImage,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      description: site.description,
+      publisher: { '@id': `${site.url}/#organization` },
+      inLanguage: 'en-IN',
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Reveal-on-scroll: only hide animated elements when JS + IntersectionObserver exist -->
+    <script is:inline>
+      if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('reveal-ready');
+      }
+    </script>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1877f2" />
+    <meta name="author" content={site.name} />
+    <meta name="keywords" content="AI community Kerala, artificial intelligence Kerala, AI meetups Kerala, machine learning Kerala, AI developers, AI Connect Kerala, tech community Kerala" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={site.locale} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+
+    <script>
+      const reveal = () => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const io = new IntersectionObserver(
+          (entries, obs) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const el = entry.target as HTMLElement;
+              if (el.hasAttribute('data-reveal-stagger')) {
+                const step = Number(el.getAttribute('data-reveal-stagger')) || 80;
+                Array.from(el.children).forEach((child, i) => {
+                  (child as HTMLElement).style.setProperty('--reveal-delay', `${i * step}ms`);
+                  child.classList.add('is-visible');
+                });
+              } else {
+                el.classList.add('is-visible');
+              }
+              obs.unobserve(el);
+            }
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+        );
+
+        document
+          .querySelectorAll('[data-reveal], [data-reveal-stagger]')
+          .forEach((el) => io.observe(el));
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', reveal, { once: true });
+      } else {
+        reveal();
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: -48px;
+    z-index: 200;
+    background: #fff;
+    color: var(--ink);
+    padding: 10px 16px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    font-weight: 600;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 16px;
+  }
+</style>

@@ -1,0 +1,78 @@
+---
+const reasons = [
+  { icon: '📚', title: 'Learn', text: 'Stay updated with the latest AI tools and trends through curated content and expert sessions.' },
+  { icon: '🔗', title: 'Connect', text: 'Meet professionals, researchers, and founders from across Kerala and beyond.' },
+  { icon: '🛠️', title: 'Build', text: 'Collaborate on projects and ideas with a talented, motivated community.' },
+  { icon: '📈', title: 'Grow', text: 'Advance your skills and career with mentorship, workshops, and real-world experience.' },
+];
+---
+
+<section class="section why" id="why-join">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Why join</span>
+      <h2>Why Join AI Connect Kerala</h2>
+    </div>
+
+    <div class="why-grid" data-reveal-stagger="80">
+      {reasons.map((r) => (
+        <article class="card why-card">
+          <span class="why-icon" aria-hidden="true">{r.icon}</span>
+          <h3>{r.title}</h3>
+          <p>{r.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why {
+    background: var(--bg-soft);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .why-card {
+    padding: 33px;
+    border-radius: var(--radius-lg);
+    text-align: left;
+  }
+  .why-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+  .why-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    font-size: 26px;
+    background: linear-gradient(135deg, rgba(24, 119, 242, 0.12), rgba(168, 85, 247, 0.12));
+    border: 1px solid rgba(168, 85, 247, 0.18);
+  }
+  .why-card h3 {
+    margin-top: 24px;
+    font-size: 24px;
+  }
+  .why-card p {
+    margin-top: 14px;
+    font-size: 15px;
+    color: var(--text-2);
+  }
+
+  @media (max-width: 1000px) {
+    .why-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 520px) {
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

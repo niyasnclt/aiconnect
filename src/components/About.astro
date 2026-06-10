@@ -1,0 +1,183 @@
+---
+const missionTags = ['Learn', 'Share', 'Collaborate', 'Grow'];
+---
+
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-head" data-reveal>
+      <span class="eyebrow">About us</span>
+      <h2>Kerala's Community for AI Learning &amp; Collaboration</h2>
+      <p>
+        AI Connect Kerala is a growing community for software professionals, developers, testers,
+        designers, product managers, students, founders, and AI enthusiasts who want to stay updated
+        with the rapidly evolving world of Artificial Intelligence.
+      </p>
+    </div>
+
+    <div class="about-grid" data-reveal-stagger="130">
+      <!-- Vision -->
+      <article class="card about-card">
+        <span class="card-blob blob-a" aria-hidden="true"></span>
+        <span class="card-blob blob-b" aria-hidden="true"></span>
+        <div class="card-icon" aria-hidden="true">🎯</div>
+        <h3>Vision</h3>
+        <p class="about-text">
+          To build the most active AI-focused technology community in Kerala, enabling professionals
+          to learn, experiment, collaborate, and grow together as AI reshapes the future of software
+          development.
+        </p>
+        <div class="card-foot">
+          <div class="stat">
+            <span class="stat-num grad-text">2026</span>
+            <span class="stat-label">Founded</span>
+          </div>
+          <div class="foot-bar" aria-hidden="true"><span></span></div>
+        </div>
+      </article>
+
+      <!-- Mission -->
+      <article class="card about-card">
+        <span class="card-blob blob-c" aria-hidden="true"></span>
+        <div class="card-icon" aria-hidden="true">🚀</div>
+        <h3>Mission</h3>
+        <p class="about-text">
+          To create a collaborative platform where members can learn, share knowledge, discuss
+          emerging AI trends, explore real-world use cases, and discover how AI is transforming
+          software development and related disciplines.
+        </p>
+        <div class="card-foot">
+          <ul class="tag-row">
+            {missionTags.map((t) => <li class="pill">{t}</li>)}
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-head {
+    max-width: 880px;
+    margin-bottom: 44px;
+  }
+  .about-head h2 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin-top: 12px;
+  }
+  .about-head p {
+    margin-top: 18px;
+    font-size: 17px;
+    color: var(--text-2);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+  }
+  .about-card {
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+  }
+  .card-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.18;
+    z-index: 0;
+  }
+  .blob-a { width: 280px; height: 280px; right: -60px; top: -80px; background: var(--purple); }
+  .blob-b { width: 180px; height: 180px; left: -50px; bottom: -40px; background: var(--blue); }
+  .blob-c { width: 220px; height: 220px; right: -40px; bottom: -60px; background: var(--pink); }
+
+  .about-card > :not(.card-blob) {
+    position: relative;
+    z-index: 1;
+  }
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    background: linear-gradient(135deg, rgba(24, 119, 242, 0.12), rgba(168, 85, 247, 0.12));
+    border: 1px solid rgba(168, 85, 247, 0.18);
+  }
+  .about-card h3 {
+    margin-top: 22px;
+    font-size: 28px;
+  }
+  .about-text {
+    margin-top: 14px;
+    font-size: 16px;
+    color: var(--text);
+    max-width: 520px;
+  }
+  .card-foot {
+    margin-top: auto;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .foot-bar {
+    flex: 1;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .foot-bar span {
+    display: block;
+    width: 30%;
+    height: 100%;
+    margin-left: auto;
+    background: var(--brand-gradient);
+    border-radius: 999px;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .pill {
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--purple-600);
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+  }
+
+  @media (max-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-card {
+      padding: 32px;
+    }
+  }
+</style>
