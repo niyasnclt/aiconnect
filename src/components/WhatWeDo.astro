@@ -1,11 +1,12 @@
 ---
+import { Icon } from 'astro-icon/components';
 const items = [
-  { icon: '📅', title: 'Monthly Meetups', text: 'Regular gatherings in cities across Kerala to discuss, demo, and connect.' },
-  { icon: '🎤', title: 'Expert Talks', text: 'Industry leaders and researchers sharing cutting-edge AI insights.' },
-  { icon: '🛠️', title: 'AI Tool Discovery', text: 'Hands-on exploration of the latest AI tools and platforms.' },
-  { icon: '💻', title: 'Hands-on Sessions', text: 'Workshops and labs to build real skills in a collaborative environment.' },
-  { icon: '🤝', title: 'Networking Opportunities', text: 'Meet like-minded professionals, founders, and researchers.' },
-  { icon: '💬', title: 'Open Discussions', text: 'Inclusive spaces to discuss AI ethics, trends, and use cases.' },
+  { icon: 'lucide:calendar', title: 'Monthly Meetups', text: 'Regular gatherings in cities across Kerala to discuss, demo, and connect.' },
+  { icon: 'lucide:mic', title: 'Expert Talks', text: 'Industry leaders and researchers sharing cutting-edge AI insights.' },
+  { icon: 'lucide:wrench', title: 'AI Tool Discovery', text: 'Hands-on exploration of the latest AI tools and platforms.' },
+  { icon: 'lucide:laptop', title: 'Hands-on Sessions', text: 'Workshops and labs to build real skills in a collaborative environment.' },
+  { icon: 'lucide:handshake', title: 'Networking Opportunities', text: 'Meet like-minded professionals, founders, and researchers.' },
+  { icon: 'lucide:message-circle', title: 'Open Discussions', text: 'Inclusive spaces to discuss AI ethics, trends, and use cases.' },
 ];
 ---
 
@@ -19,7 +20,7 @@ const items = [
     <div class="what-grid" data-reveal-stagger="70">
       {items.map((item) => (
         <article class="card what-card">
-          <div class="what-icon" aria-hidden="true">{item.icon}</div>
+          <div class="what-icon" aria-hidden="true"><Icon name={item.icon} class="what-icon-svg" /></div>
           <h3>{item.title}</h3>
           <p>{item.text}</p>
           <span class="what-divider" aria-hidden="true"></span>
@@ -53,9 +54,13 @@ const items = [
     border-radius: 16px;
     display: grid;
     place-items: center;
-    font-size: 26px;
     background: linear-gradient(135deg, rgba(24, 119, 242, 0.1), rgba(236, 72, 153, 0.1));
     border: 1px solid var(--border);
+  }
+  .what-icon-svg {
+    width: 26px;
+    height: 26px;
+    color: var(--purple-600);
   }
   .what-card h3 {
     margin-top: 22px;
