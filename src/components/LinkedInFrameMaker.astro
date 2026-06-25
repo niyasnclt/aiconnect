@@ -251,6 +251,24 @@
     for(var y=0;y<=H;y+=54){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
     ctx.restore();
 
+    // Sparkle decorations
+    function drawSparkle(sx,sy,sz,sc,so,sw){
+      var sc2=sz/24;ctx.save();ctx.globalAlpha=so;
+      ctx.translate(sx,sy);ctx.scale(sc2,sc2);
+      ctx.beginPath();
+      ctx.moveTo(12,0);
+      ctx.bezierCurveTo(13.1,7.3,15.6,9.8,24,12);
+      ctx.bezierCurveTo(15.6,14.2,13.1,16.7,12,24);
+      ctx.bezierCurveTo(10.9,16.7,8.4,14.2,0,12);
+      ctx.bezierCurveTo(8.4,9.8,10.9,7.3,12,0);
+      ctx.closePath();
+      ctx.strokeStyle=sc;ctx.lineWidth=sw;ctx.stroke();
+      ctx.restore();
+    }
+    drawSparkle(W-54-130,250,130,'#007AFF',0.16,1);
+    drawSparkle(48,470,84,'#9D4EDD',0.16,1.1);
+    drawSparkle(W-110-56,640,56,'#E9499F',0.18,1.4);
+
     // Top bar
     ctx.fillStyle=brand();ctx.fillRect(0,0,W,9);
 
@@ -356,12 +374,20 @@
     ctx.fillText('10 AM \u2013 1 PM',104,fm+12);
     ctx.save();ctx.strokeStyle='#d6dedd';ctx.lineWidth=1;
     ctx.beginPath();ctx.moveTo(268,fm-22);ctx.lineTo(268,fm+22);ctx.stroke();ctx.restore();
-    // pin icon
-    ctx.save();ctx.strokeStyle='#E9499F';ctx.lineWidth=1.8;
-    ctx.beginPath();ctx.arc(292,fm-8,8,0,Math.PI*2);ctx.stroke();
-    ctx.beginPath();ctx.moveTo(292,fm);ctx.lineTo(292,fm+11);ctx.stroke();ctx.restore();
+    // pin icon (map pin shape)
+    ctx.save();ctx.strokeStyle='#E9499F';ctx.lineWidth=1.8;ctx.lineJoin='round';
+    var pi={x:292,y:fm};// icon center-bottom anchor
+    ctx.beginPath();
+    // teardrop: arc from bottom going around the top
+    ctx.arc(pi.x,pi.y-11,7,0.52*Math.PI,Math.PI*2.48);
+    ctx.lineTo(pi.x,pi.y+2);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();ctx.arc(pi.x,pi.y-11,2.5,0,Math.PI*2);ctx.stroke();
+    ctx.restore();
     ctx.font='600 15px "Hanken Grotesk",sans-serif';ctx.fillStyle='#3a4a4e';
-    ctx.fillText('IOCOD Infotech, Govt. Cyberpark, Sahya Building, Calicut',312,fm+2);
+    ctx.fillText('IOCOD Infotech, Govt. Cyberpark,',312,fm-7);
+    ctx.fillText('Sahya Building, Calicut',312,fm+12);
     // more info
     ctx.textAlign='right';
     ctx.font='700 12px "Hanken Grotesk",sans-serif';ctx.fillStyle='#9aa6a9';
