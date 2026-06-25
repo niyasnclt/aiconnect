@@ -1,0 +1,439 @@
+<!-- =====================================================================
+  AI Connect Keralam — LinkedIn Badge Maker
+  Exact visual match of the original bundled HTML design.
+  Download uses native Canvas API (no external deps) identical to original.
+  ===================================================================== -->
+
+<div class="frame-page">
+
+  <!-- Header -->
+  <header class="fp-header">
+    <img src="/AI-con-Logo.svg" alt="AI Connect Keralam" class="fp-logo" />
+    <p>Fill in the steps below, then click <strong>Download PNG</strong> to save your LinkedIn frame</p>
+  </header>
+
+  <!-- Controls card -->
+  <div class="ctrl-card">
+    <div class="ctrl-step">
+      <div class="step-num" style="background:linear-gradient(135deg,#007AFF,#9D4EDD)">1</div>
+      <div class="step-body">
+        <div class="step-label">Your name</div>
+        <input id="nameInput" type="text" placeholder="Enter your name…" maxlength="40" class="step-input" />
+      </div>
+    </div>
+    <div class="ctrl-sep"></div>
+    <div class="ctrl-dl">
+      <div class="step-num" style="background:linear-gradient(135deg,#9D4EDD,#E9499F)">2</div>
+      <div class="ctrl-dl-wrap">
+        <button id="downloadBtn" type="button" class="dl-btn" disabled>Download PNG</button>
+        <p id="dlHint" class="dl-hint">Upload a photo first</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo tip -->
+  <p class="photo-tip">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    Click the circle below (or drag your photo onto it) to add your photo
+  </p>
+
+  <!-- Frame preview -->
+  <div class="frame-outer">
+    <div id="frameScaler" class="frame-scaler">
+      <div id="li-share-frame" class="lf">
+
+        <div class="lf-bg-grad"></div>
+        <div class="lf-bg-grid"></div>
+        <div class="lf-topbar"></div>
+        <img src="/AI-con-Logo.svg" alt="AI Connect Keralam" class="lf-logo-tl" />
+        <div class="lf-pill-tr">
+          <span class="lf-pill-dot"></span>
+          FIRST COMMUNITY MEETUP
+        </div>
+
+        <div class="lf-center">
+          <div class="lf-proud-label">PROUD TO BE PART OF</div>
+          <img src="/AI-con-Logo.svg" alt="AI Connect Keralam" class="lf-proud-logo" />
+
+          <div class="lf-photo-ring">
+            <div id="photoDrop" class="lf-photo-core" title="Click or drop photo">
+              <img id="photoImage" alt="Your photo" class="lf-photo-img" hidden />
+              <div id="photoPlaceholder" class="lf-photo-placeholder">
+                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#c4cdd4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="m21 15-5-5L5 21"/>
+                </svg>
+                <span>Click or drop<br/>your photo here</span>
+              </div>
+            </div>
+          </div>
+          <button id="removePhotoBtn" class="lf-remove-photo" type="button" hidden aria-label="Remove photo">×</button>
+
+          <div id="roleBadge" class="lf-badge">Participant</div>
+          <h2 id="displayName" class="lf-name">Your Name</h2>
+          <p class="lf-tagline">I'll be there, will you?</p>
+
+          <div class="lf-divider">
+            <div class="lf-dl lf-dl-l"></div>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2 14.4 9.6 22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z" fill="#9D4EDD"/>
+            </svg>
+            <div class="lf-dl lf-dl-r"></div>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <div class="lf-footer">
+          <div class="lf-footer-line"></div>
+          <div class="lf-footer-inner">
+            <div class="lf-fcol">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#007AFF" stroke-width="1.8" aria-hidden="true">
+                <rect x="1" y="3" width="20" height="18" rx="2"/>
+                <path d="M7 1v4M15 1v4M1 9h20"/>
+              </svg>
+              <div>
+                <div class="lf-fmain">June 27, 2026</div>
+                <div class="lf-fsub">10 AM – 1 PM</div>
+              </div>
+            </div>
+            <div class="lf-fvsep"></div>
+            <div class="lf-fcol">
+              <svg width="18" height="22" viewBox="0 0 18 24" fill="none" stroke="#E9499F" stroke-width="1.8" aria-hidden="true">
+                <path d="M9 1C5.13 1 2 4.13 2 8c0 5.25 7 15 7 15s7-9.75 7-15c0-3.87-3.13-7-7-7z"/>
+                <circle cx="9" cy="8" r="2.5"/>
+              </svg>
+              <div>
+                <div class="lf-fmain" style="font-size:16px">IOCOD Infotech, Govt. Cyberpark,</div>
+                <div class="lf-fsub">Sahya Building, Calicut</div>
+              </div>
+            </div>
+            <div class="lf-fmore">
+              <div class="lf-fmore-label">MORE INFO</div>
+              <div class="lf-fmore-url">www.aiconnectkeralam.in</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lf-bottombar"></div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<input id="photoInput" type="file" accept="image/*" hidden />
+
+<script>
+(function(){
+  var photoUrl=null,downloading=false;
+  var nameInput=document.getElementById('nameInput');
+  var displayName=document.getElementById('displayName');
+  var roleBadge=document.getElementById('roleBadge');
+  var photoInput=document.getElementById('photoInput');
+  var photoDrop=document.getElementById('photoDrop');
+  var photoImage=document.getElementById('photoImage');
+  var photoPlaceholder=document.getElementById('photoPlaceholder');
+  var removePhotoBtn=document.getElementById('removePhotoBtn');
+  var frameScaler=document.getElementById('frameScaler');
+  var downloadBtn=document.getElementById('downloadBtn');
+
+  function applyName(){displayName.textContent=nameInput.value.trim()||'Your Name';}
+
+  function updateDownloadState(){
+    var hasPhoto=!!photoUrl;
+    downloadBtn.disabled=!hasPhoto;
+    var hint=document.getElementById('dlHint');
+    if(hint)hint.style.display=hasPhoto?'none':'';
+  }
+  function loadPhoto(file){
+    if(!file||!file.type.startsWith('image/'))return;
+    var reader=new FileReader();
+    reader.onload=function(e){
+      photoUrl=e.target.result;
+      photoImage.src=photoUrl;photoImage.hidden=false;
+      photoPlaceholder.hidden=true;removePhotoBtn.hidden=false;
+      try{localStorage.setItem('ai-connect-photo',photoUrl);}catch(x){}
+      updateDownloadState();
+    };
+    reader.readAsDataURL(file);
+  }
+  function clearPhoto(){
+    photoUrl=null;photoImage.src='';photoImage.hidden=true;
+    photoPlaceholder.hidden=false;removePhotoBtn.hidden=true;photoInput.value='';
+    try{localStorage.removeItem('ai-connect-photo');}catch(x){}
+    updateDownloadState();
+  }
+  function updateScale(){
+    var avail=Math.min(window.innerWidth-40,720);
+    var scale=Math.min(1,avail/1080);
+    frameScaler.style.transform='scale('+scale+')';
+    frameScaler.style.marginBottom=((scale-1)*1080)+'px';
+  }
+
+  function loadImg(src){
+    return new Promise(function(res){
+      var i=new Image();
+      // Do NOT set crossOrigin for data: URLs — it taints the canvas and blocks drawing.
+      // Same-origin SVG/PNG assets don't need it either.
+      if(src&&src.indexOf('data:')!==0) i.crossOrigin='anonymous';
+      i.onload=function(){res(i);};i.onerror=function(){res(null);};i.src=src;
+    });
+  }
+
+  async function renderToCanvas(){
+    var W=1080,H=1080,DPR=2;
+    var canvas=document.createElement('canvas');
+    canvas.width=W*DPR;canvas.height=H*DPR;
+    var ctx=canvas.getContext('2d');
+    ctx.scale(DPR,DPR);
+    var role='Participant';
+    var dname=nameInput.value.trim()||'Your Name';
+    var logoEl=document.querySelector('img.lf-logo-tl');
+    var results=await Promise.all([
+      logoEl?loadImg(logoEl.src):Promise.resolve(null),
+      photoUrl?loadImg(photoUrl):Promise.resolve(null)
+    ]);
+    var logoImg=results[0],photoImg=results[1];
+
+    function lgrad(x0,y0,x1,y1,stops){
+      var g=ctx.createLinearGradient(x0,y0,x1,y1);
+      stops.forEach(function(s){g.addColorStop(s[0],s[1]);});
+      return g;
+    }
+    function brand(){return lgrad(0,0,W,0,[[0,'#007AFF'],[0.52,'#9D4EDD'],[1,'#E9499F']]);}
+    function pill(x,y,w,h){
+      var r=h/2;ctx.beginPath();
+      ctx.arc(x+r,y+r,r,Math.PI*.5,Math.PI*1.5);
+      ctx.arc(x+w-r,y+r,r,Math.PI*1.5,Math.PI*.5);
+      ctx.closePath();
+    }
+
+    // Background
+    ctx.fillStyle=lgrad(0,0,0,H,[[0,'#eef3fb'],[0.46,'#f3f5f9'],[1,'#f1f4f8']]);
+    ctx.fillRect(0,0,W,H);
+    ctx.save();ctx.strokeStyle='rgba(20,60,110,.06)';ctx.lineWidth=1;
+    for(var x=0;x<=W;x+=54){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(var y=0;y<=H;y+=54){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    ctx.restore();
+
+    // Top bar
+    ctx.fillStyle=brand();ctx.fillRect(0,0,W,9);
+
+    // Logo top-left
+    if(logoImg){var lh=56,lw=logoImg.width*lh/logoImg.height;ctx.drawImage(logoImg,64,40,lw,lh);}
+
+    // FIRST COMMUNITY MEETUP pill
+    ctx.save();ctx.font='700 13px "Hanken Grotesk",sans-serif';ctx.textBaseline='middle';
+    var pt='FIRST COMMUNITY MEETUP',ptw=ctx.measureText(pt).width+54;
+    var px=W-64-ptw,py=40;
+    pill(px,py,ptw,42);ctx.fillStyle='#fff';ctx.fill();
+    ctx.strokeStyle='#d3deea';ctx.lineWidth=1;ctx.stroke();
+    ctx.beginPath();ctx.arc(px+22,py+21,4,0,Math.PI*2);ctx.fillStyle='#007AFF';ctx.fill();
+    ctx.fillStyle='#3a4a4e';ctx.textAlign='left';ctx.fillText(pt,px+34,py+21);
+    ctx.restore();
+
+    // PROUD TO BE PART OF + logo
+    var cy=120;
+    ctx.save();ctx.font='700 20px "Hanken Grotesk",sans-serif';
+    ctx.fillStyle='#6e7b7a';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+    ctx.fillText('PROUD TO BE PART OF',W/2,cy+26);cy+=46;
+    if(logoImg){var bh2=90,bw2=logoImg.width*bh2/logoImg.height;ctx.drawImage(logoImg,W/2-bw2/2,cy,bw2,bh2);cy+=bh2+20;}
+    ctx.restore();
+
+    // Photo circle
+    var cr=181,cx=W/2,photoY=cy+cr;
+    ctx.save();
+    var gl=ctx.createRadialGradient(cx,photoY,0,cx,photoY,cr+55);
+    gl.addColorStop(0,'rgba(0,122,255,.18)');gl.addColorStop(0.5,'rgba(233,73,159,.08)');gl.addColorStop(1,'transparent');
+    ctx.fillStyle=gl;ctx.beginPath();ctx.arc(cx,photoY,cr+55,0,Math.PI*2);ctx.fill();ctx.restore();
+    ctx.save();
+    var rg=lgrad(cx-cr-15,photoY-cr-15,cx+cr+15,photoY+cr+15,[[0,'#007AFF'],[0.52,'#9D4EDD'],[1,'#E9499F']]);
+    ctx.beginPath();ctx.arc(cx,photoY,cr+15,0,Math.PI*2);ctx.fillStyle=rg;ctx.fill();
+    ctx.beginPath();ctx.arc(cx,photoY,cr+6,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.restore();
+    ctx.save();ctx.beginPath();ctx.arc(cx,photoY,cr,0,Math.PI*2);ctx.clip();
+    if(photoImg){
+      var sc=Math.max(cr*2/photoImg.width,cr*2/photoImg.height);
+      var pw=photoImg.width*sc,ph=photoImg.height*sc;
+      ctx.drawImage(photoImg,cx-pw/2,photoY-cr-(ph-cr*2)*.18,pw,ph);
+    }else{
+      ctx.fillStyle='#f4f7fa';ctx.fillRect(cx-cr,photoY-cr,cr*2,cr*2);
+      ctx.fillStyle='#c4cdd4';ctx.font='600 18px "Hanken Grotesk",sans-serif';
+      ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Click circle to add photo',cx,photoY);
+    }
+    ctx.restore();
+    cy=photoY+cr;
+
+    // Badge
+    var themeMap={
+      Participant:[[0,'#007AFF'],[1,'#3C9CFF']],
+      Organizer:[[0,'#007AFF'],[0.52,'#9D4EDD'],[1,'#E9499F']],
+      Speaker:[[0,'#9D4EDD'],[1,'#E9499F']],
+      Volunteer:[[0,'#E9499F'],[1,'#FF7AB3']],
+      Mentor:[[0,'#007AFF'],[1,'#9D4EDD']]
+    };
+    ctx.font='800 50px "Hanken Grotesk",sans-serif';ctx.textBaseline='alphabetic';
+    var bw=ctx.measureText(role).width+108,bh=84,bx=cx-bw/2,by=cy-26;
+    ctx.save();ctx.shadowColor='rgba(6,33,39,.35)';ctx.shadowBlur=24;ctx.shadowOffsetY=12;
+    pill(bx,by,bw,bh);ctx.fillStyle=lgrad(bx,by,bx+bw,by,themeMap[role]||themeMap.Participant);ctx.fill();ctx.restore();
+    ctx.save();ctx.strokeStyle='#fff';ctx.lineWidth=4;pill(bx,by,bw,bh);ctx.stroke();ctx.restore();
+    ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(role,cx,by+bh/2);
+    cy=by+bh;
+
+    // Name
+    cy+=30;
+    ctx.font='800 46px "Hanken Grotesk",sans-serif';ctx.fillStyle='#062127';
+    ctx.textAlign='center';ctx.textBaseline='alphabetic';
+    ctx.fillText(dname,cx,cy+46);cy+=46;
+    ctx.font='600 19px "Hanken Grotesk",sans-serif';ctx.fillStyle='#6a7a7e';
+    ctx.fillText("I'll be there, will you?",cx,cy+32);cy+=32;
+
+    // Divider + sparkle
+    cy+=26;
+    ctx.save();
+    var dg=ctx.createLinearGradient(cx-260,cy,cx-20,cy);
+    dg.addColorStop(0,'transparent');dg.addColorStop(1,'#cdd7e0');
+    ctx.strokeStyle=dg;ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(cx-260,cy);ctx.lineTo(cx-20,cy);ctx.stroke();
+    dg=ctx.createLinearGradient(cx+20,cy,cx+260,cy);
+    dg.addColorStop(0,'#cdd7e0');dg.addColorStop(1,'transparent');
+    ctx.strokeStyle=dg;ctx.beginPath();ctx.moveTo(cx+20,cy);ctx.lineTo(cx+260,cy);ctx.stroke();
+    ctx.fillStyle='#9D4EDD';ctx.beginPath();
+    ctx.moveTo(cx,cy-11);ctx.bezierCurveTo(cx+2,cy-2,cx+2,cy-2,cx+11,cy);
+    ctx.bezierCurveTo(cx+2,cy+2,cx+2,cy+2,cx,cy+11);
+    ctx.bezierCurveTo(cx-2,cy+2,cx-2,cy+2,cx-11,cy);
+    ctx.bezierCurveTo(cx-2,cy-2,cx-2,cy-2,cx,cy-11);ctx.fill();
+    ctx.restore();
+
+    // Footer
+    var fh=110,fy=H-fh-9;
+    ctx.fillStyle=brand();ctx.fillRect(0,fy,W,3);
+    ctx.fillStyle='#fbfcfe';ctx.fillRect(0,fy+3,W,fh);
+    var fm=fy+3+fh/2;ctx.textBaseline='middle';
+    ctx.save();ctx.strokeStyle='#007AFF';ctx.lineWidth=1.8;
+    var ci={x:72,y:fm-13,w:22,h:20};
+    ctx.strokeRect(ci.x,ci.y,ci.w,ci.h);
+    ctx.beginPath();ctx.moveTo(ci.x+7,ci.y);ctx.lineTo(ci.x+7,ci.y-5);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(ci.x+15,ci.y);ctx.lineTo(ci.x+15,ci.y-5);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(ci.x,ci.y+7);ctx.lineTo(ci.x+ci.w,ci.y+7);ctx.stroke();ctx.restore();
+    ctx.font='800 21px "Hanken Grotesk",sans-serif';ctx.fillStyle='#062127';
+    ctx.textAlign='left';ctx.fillText('June 27, 2026',104,fm-8);
+    ctx.font='600 15px "Hanken Grotesk",sans-serif';ctx.fillStyle='#6a7a7e';
+    ctx.fillText('10 AM \u2013 1 PM',104,fm+12);
+    ctx.save();ctx.strokeStyle='#d6dedd';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(268,fm-22);ctx.lineTo(268,fm+22);ctx.stroke();ctx.restore();
+    ctx.save();ctx.strokeStyle='#E9499F';ctx.lineWidth=1.8;
+    ctx.beginPath();ctx.arc(292,fm-8,8,0,Math.PI*2);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(292,fm);ctx.lineTo(292,fm+11);ctx.stroke();ctx.restore();
+    ctx.font='600 15px "Hanken Grotesk",sans-serif';ctx.fillStyle='#3a4a4e';
+    ctx.fillText('IOCOD Infotech, Govt. Cyberpark, Sahya Building, Calicut',312,fm+2);
+    ctx.textAlign='right';
+    ctx.font='700 12px "Hanken Grotesk",sans-serif';ctx.fillStyle='#9aa6a9';
+    ctx.fillText('MORE INFO',W-64,fm-8);
+    ctx.font='800 22px "Hanken Grotesk",sans-serif';ctx.fillStyle='#007AFF';
+    ctx.fillText('www.aiconnectkeralam.in',W-64,fm+12);
+
+    // Bottom bar
+    ctx.fillStyle=lgrad(0,0,W,0,[[0,'#E9499F'],[0.52,'#9D4EDD'],[1,'#007AFF']]);
+    ctx.fillRect(0,H-9,W,9);
+    return canvas;
+  }
+
+  async function downloadFrame(){
+    if(downloading)return;
+    downloading=true;downloadBtn.disabled=true;downloadBtn.textContent='Saving\u2026';
+    try{
+      var canvas=await renderToCanvas();
+      var a=document.createElement('a');
+      a.download='AI-Connect-Keralam-Frame.png';a.href=canvas.toDataURL('image/png');a.click();
+    }catch(err){
+      console.error('Canvas render error:',err);
+      alert('Could not download. Please take a screenshot of the frame.');
+    }
+    downloading=false;downloadBtn.disabled=false;downloadBtn.textContent='Download PNG';
+  }
+
+  nameInput.addEventListener('input',applyName);
+  photoInput.addEventListener('change',function(e){loadPhoto(e.target.files[0]);});
+  photoDrop.addEventListener('click',function(){photoInput.click();});
+  removePhotoBtn.addEventListener('click',clearPhoto);
+  downloadBtn.addEventListener('click',downloadFrame);
+  photoDrop.addEventListener('dragover',function(e){e.preventDefault();photoDrop.classList.add('dragging');});
+  photoDrop.addEventListener('dragleave',function(){photoDrop.classList.remove('dragging');});
+  photoDrop.addEventListener('drop',function(e){
+    e.preventDefault();photoDrop.classList.remove('dragging');
+    if(e.dataTransfer&&e.dataTransfer.files)loadPhoto(e.dataTransfer.files[0]);
+  });
+  window.addEventListener('resize',updateScale);
+
+  try{var saved=localStorage.getItem('ai-connect-photo');if(saved){photoUrl=saved;photoImage.src=saved;photoImage.hidden=false;photoPlaceholder.hidden=true;removePhotoBtn.hidden=false;}}catch(x){}
+  updateDownloadState();
+  updateScale();
+})();
+</script>
+
+<style>
+  .frame-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:36px 20px 72px;gap:20px;background:#d8dde3;font-family:'Hanken Grotesk','Inter Variable','Inter',system-ui,sans-serif;color:#062127;}
+  .fp-header{text-align:center;}
+  .fp-logo{height:50px;width:auto;margin:0 auto 12px;display:block;}
+  .fp-header p{margin:0;font:500 14px/1.5 inherit;color:#5a6a70;}
+  .ctrl-card{max-width:900px;width:100%;background:#fff;border-radius:20px;box-shadow:0 4px 28px -8px rgba(6,33,39,.18);padding:22px 30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .ctrl-step{display:flex;align-items:center;gap:13px;flex:1;min-width:190px;}
+  .step-num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 13px/1 inherit;color:#fff;flex:none;}
+  .step-body{flex:1;}
+  .step-label{font:700 11px/1 inherit;letter-spacing:.13em;text-transform:uppercase;color:#9aa6a9;margin-bottom:8px;}
+  .step-input{width:100%;border:1.5px solid #e0e8ee;border-radius:10px;padding:10px 13px;font:600 15px/1 inherit;color:#062127;background:#f8fafc;}
+  .ctrl-sep{width:1px;height:54px;background:#eaeef2;flex:none;}
+  .ctrl-dl{display:flex;flex-direction:column;align-items:center;gap:10px;flex:none;}
+  .dl-btn{background:linear-gradient(110deg,#007AFF,#9D4EDD,#E9499F);border:none;border-radius:12px;padding:13px 22px;font:700 14px/1 inherit;color:#fff;cursor:pointer;box-shadow:0 8px 20px -8px rgba(0,122,255,.45);white-space:nowrap;min-width:148px;text-align:center;}
+  .dl-btn:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.4);}
+  .ctrl-dl-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .dl-hint{margin:0;font:500 12px/1 inherit;color:#e9499f;text-align:center;}
+  .photo-tip{display:flex;align-items:center;gap:7px;font:500 13px/1 inherit;color:#8a9aa0;}
+  .frame-outer{width:100%;display:flex;justify-content:center;overflow:hidden;}
+  .frame-scaler{width:1080px;transform-origin:top center;will-change:transform;flex:none;}
+  .lf{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;}
+  .lf-bg-grad{position:absolute;inset:0;background:linear-gradient(180deg,#eef3fb 0%,#f3f5f9 46%,#f1f4f8 100%);}
+  .lf-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(20,60,110,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(20,60,110,.06) 1px,transparent 1px);background-size:54px 54px;}
+  .lf-topbar{position:absolute;top:0;left:0;right:0;height:9px;z-index:3;background:linear-gradient(90deg,#007AFF,#9D4EDD,#E9499F);}
+  .lf-logo-tl{position:absolute;top:40px;left:64px;height:56px;width:auto;z-index:3;display:block;}
+  .lf-pill-tr{position:absolute;top:40px;right:64px;z-index:3;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #d3deea;border-radius:999px;padding:0 20px;height:42px;font:700 13px/1 'Hanken Grotesk',sans-serif;color:#3a4a4e;white-space:nowrap;}
+  .lf-pill-dot{width:8px;height:8px;border-radius:50%;background:#007AFF;flex:none;}
+  .lf-center{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;padding-top:120px;}
+  .lf-proud-label{font:700 20px/1 'Hanken Grotesk',sans-serif;letter-spacing:.2em;color:#6e7b7a;margin-bottom:14px;}
+  .lf-proud-logo{height:90px;width:auto;display:block;margin-bottom:20px;}
+  .lf-photo-ring{width:392px;height:392px;border-radius:50%;background:linear-gradient(135deg,#007AFF,#9D4EDD,#E9499F);padding:15px;box-shadow:0 34px 64px -30px rgba(6,33,39,.5);position:relative;}
+  .lf-photo-core{width:100%;height:100%;border-radius:50%;overflow:hidden;border:6px solid #fff;background:#f4f7fa;cursor:pointer;position:relative;}
+  .lf-photo-core.dragging{outline:4px dashed #007AFF;outline-offset:-12px;}
+  .lf-photo-img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;}
+  .lf-photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
+  .lf-photo-placeholder span{font:600 17px/1.4 'Hanken Grotesk',sans-serif;color:#b8c4cc;text-align:center;}
+  .lf-remove-photo{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(6,33,39,.82);border:3px solid #fff;color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:20;box-shadow:0 4px 14px rgba(0,0,0,.4);}
+  .lf-badge{margin-top:-26px;border-radius:999px;padding:17px 54px;font:800 50px/1 'Hanken Grotesk',sans-serif;color:#fff;letter-spacing:-.01em;border:4px solid #fff;box-shadow:0 22px 44px -20px rgba(6,33,39,.55);background:linear-gradient(115deg,#007AFF,#3C9CFF);position:relative;z-index:4;}
+  .lf-name{margin-top:20px;font:800 46px/1 'Hanken Grotesk',sans-serif;letter-spacing:-.02em;color:#062127;white-space:nowrap;}
+  .lf-tagline{margin-top:12px;font:600 19px/1 'Hanken Grotesk',sans-serif;color:#6a7a7e;white-space:nowrap;}
+  .lf-divider{margin-top:26px;display:flex;align-items:center;gap:20px;width:520px;}
+  .lf-dl{flex:1;height:1px;}
+  .lf-dl-l{background:linear-gradient(90deg,transparent,#cdd7e0);}
+  .lf-dl-r{background:linear-gradient(90deg,#cdd7e0,transparent);}
+  .lf-footer{flex:none;position:relative;z-index:3;}
+  .lf-footer-line{height:3px;background:linear-gradient(90deg,#007AFF,#9D4EDD,#E9499F);}
+  .lf-footer-inner{height:110px;background:#fbfcfe;display:flex;align-items:center;padding:0 64px;}
+  .lf-fcol{display:flex;align-items:center;gap:16px;flex:none;}
+  .lf-fmain{font:800 21px/1 'Hanken Grotesk',sans-serif;color:#062127;}
+  .lf-fsub{font:600 15px/1 'Hanken Grotesk',sans-serif;color:#6a7a7e;margin-top:6px;}
+  .lf-fvsep{width:1px;height:44px;background:#d6dedd;margin:0 28px;flex:none;}
+  .lf-fmore{margin-left:auto;text-align:right;flex:none;}
+  .lf-fmore-label{font:700 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.12em;color:#9aa6a9;margin-bottom:6px;}
+  .lf-fmore-url{font:800 22px/1 'Hanken Grotesk',sans-serif;color:#007AFF;}
+  .lf-bottombar{flex:none;height:9px;z-index:3;background:linear-gradient(90deg,#E9499F,#9D4EDD,#007AFF);}
+  @media(max-width:900px){
+    .ctrl-sep{display:none;}
+    .ctrl-card{padding:20px;}
+    .ctrl-step{min-width:100%;}
+    .ctrl-dl{flex-direction:row;width:100%;}
+    .ctrl-dl .dl-btn{flex:1;}
+    .photo-tip{display:none;}
+  }
+</style>
