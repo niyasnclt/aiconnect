@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 const missionTags = ['Learn', 'Share', 'Collaborate', 'Grow'];
 ---
 
@@ -19,7 +20,7 @@ const missionTags = ['Learn', 'Share', 'Collaborate', 'Grow'];
       <article class="card about-card">
         <span class="card-blob blob-a" aria-hidden="true"></span>
         <span class="card-blob blob-b" aria-hidden="true"></span>
-        <div class="card-icon" aria-hidden="true">🎯</div>
+        <div class="card-icon" aria-hidden="true"><Icon name="lucide:target" class="card-icon-svg" /></div>
         <h3>Vision</h3>
         <p class="about-text">
           To build the most active AI-focused technology community in Kerala, enabling professionals
@@ -38,7 +39,7 @@ const missionTags = ['Learn', 'Share', 'Collaborate', 'Grow'];
       <!-- Mission -->
       <article class="card about-card">
         <span class="card-blob blob-c" aria-hidden="true"></span>
-        <div class="card-icon" aria-hidden="true">🚀</div>
+        <div class="card-icon" aria-hidden="true"><Icon name="lucide:rocket" class="card-icon-svg" /></div>
         <h3>Mission</h3>
         <p class="about-text">
           To create a collaborative platform where members can learn, share knowledge, discuss
@@ -104,9 +105,13 @@ const missionTags = ['Learn', 'Share', 'Collaborate', 'Grow'];
     border-radius: 16px;
     display: grid;
     place-items: center;
-    font-size: 26px;
     background: linear-gradient(135deg, rgba(24, 119, 242, 0.12), rgba(168, 85, 247, 0.12));
     border: 1px solid rgba(168, 85, 247, 0.18);
+  }
+  .card-icon-svg {
+    width: 26px;
+    height: 26px;
+    color: var(--purple-600);
   }
   .about-card h3 {
     margin-top: 22px;

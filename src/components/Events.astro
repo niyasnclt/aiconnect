@@ -1,10 +1,11 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { social } from '../data/site';
 
 const meta = [
-  { icon: '📍', label: 'Iocod Infotech Private Limited, Kozhikode, Kerala' },
-  { icon: '📅', label: '27th June 2026, 10 am to 12 pm' },
-  { icon: '👥', label: 'Offline Meetup' },
+  { icon: 'lucide:map-pin', label: 'Iocod Infotech Private Limited, Kozhikode, Kerala' },
+  { icon: 'lucide:calendar', label: '27th June 2026, 10 am to 12 pm' },
+  { icon: 'lucide:users', label: 'Offline Meetup' },
 ];
 
 const learn = [
@@ -26,12 +27,12 @@ const demo = [
 ];
 
 const audience = [
-  { icon: '🧑‍💻', label: 'Laravel Developers' },
-  { icon: '👨‍💻', label: 'Software Engineers' },
-  { icon: '🤖', label: 'AI Enthusiasts' },
-  { icon: '🚀', label: 'Startup Founders' },
-  { icon: '🎓', label: 'Students & Learners' },
-  { icon: '🛠️', label: 'Backend Developers' },
+  { icon: 'lucide:code-2', label: 'Laravel Developers' },
+  { icon: 'lucide:terminal', label: 'Software Engineers' },
+  { icon: 'lucide:bot', label: 'AI Enthusiasts' },
+  { icon: 'lucide:rocket', label: 'Startup Founders' },
+  { icon: 'lucide:graduation-cap', label: 'Students & Learners' },
+  { icon: 'lucide:wrench', label: 'Backend Developers' },
 ];
 ---
 
@@ -52,7 +53,7 @@ const audience = [
           <ul class="event-meta">
             <li class="badge-grad">Inaugural Event</li>
             {meta.map((m) => (
-              <li class="badge-outline"><span aria-hidden="true">{m.icon}</span>{m.label}</li>
+              <li class="badge-outline"><Icon name={m.icon} class="badge-icon" aria-hidden="true" />{m.label}</li>
             ))}
           </ul>
 
@@ -79,16 +80,19 @@ const audience = [
             ))}
           </ul>
 
-          <div class="prereq">
-            <span aria-hidden="true">💡</span>
-            <p><strong>Prerequisites:</strong> Basic understanding of PHP and Laravel is helpful but not required.</p>
-          </div>
-        </div>
+    <div class="prereq">
+    <Icon name="lucide:lightbulb" class="prereq-icon" aria-hidden="true" />
+    <p>
+        <strong>Prerequisites:</strong>
+        Basic understanding of PHP and Laravel is helpful but not required.
+        Bring your laptop to follow along with the live demo.
+    </p>
+    </div>
 
         <!-- Right -->
         <aside class="event-side">
           <div class="demo-box">
-            <h4 class="event-h4"><span aria-hidden="true">🎬</span> Live Demo</h4>
+            <h4 class="event-h4"><Icon name="lucide:video" class="demo-icon" aria-hidden="true" /> Live Demo</h4>
             <ul class="demo-list">
               {demo.map((d) => <li><span class="dot" aria-hidden="true"></span>{d}</li>)}
             </ul>
@@ -97,7 +101,7 @@ const audience = [
           <h4 class="event-h4">Who Should Attend?</h4>
           <ul class="audience-list">
             {audience.map((a) => (
-              <li><span class="aud-emoji" aria-hidden="true">{a.icon}</span>{a.label}</li>
+              <li><Icon name={a.icon} class="aud-icon" aria-hidden="true" />{a.label}</li>
             ))}
           </ul>
 
@@ -252,8 +256,12 @@ const audience = [
     background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(236, 72, 153, 0.06));
     border: 1px solid rgba(245, 158, 11, 0.25);
   }
-  .prereq span {
-    font-size: 18px;
+  .prereq-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #f59e0b;
+    margin-top: 1px;
   }
   .prereq p {
     font-size: 14px;
@@ -271,6 +279,11 @@ const audience = [
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+  .demo-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--purple-600);
   }
   .demo-list {
     margin-top: 16px;
@@ -311,6 +324,17 @@ const audience = [
     font-weight: 500;
     color: var(--ink-2);
     transition: border-color 0.18s ease, background-color 0.18s ease;
+  }
+  .aud-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--purple-600);
+  }
+  .badge-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
   }
   .audience-list li:hover {
     border-color: rgba(168, 85, 247, 0.4);
