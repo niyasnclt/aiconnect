@@ -19,10 +19,11 @@ export const site = {
 };
 
 export const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'What we do', href: '#what-we-do' },
-  { label: 'Events', href: '#events' },
-  { label: 'Contact us', href: '#footer' },
+  { label: 'About', href: '/#about' },
+  { label: 'What we do', href: '/#what-we-do' },
+  { label: 'Events', href: '/#events' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Contact us', href: '/#footer' },
 ];
 
 export const social = {

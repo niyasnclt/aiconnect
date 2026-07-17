@@ -1,0 +1,246 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { site } from '../data/site';
+
+// Each event renders its own titled photo section. Add more objects here as
+// future meetups are documented — the layout scales automatically.
+const events = [
+  {
+    title: 'AI Connect Kozhikode — Inaugural Meetup',
+    badge: 'Inaugural',
+    tag: { icon: 'lucide:presentation', label: 'MCP in Action' },
+    meta: [
+      { icon: 'lucide:map-pin', label: 'Kozhikode, Kerala' },
+      { icon: 'lucide:calendar', label: 'June 2026' },
+      { icon: 'lucide:users', label: '80+ Attendees' },
+    ],
+    images: [
+      { src: '/gallery/kozhikode/k1.jpg', cls: 'gk1', alt: 'Keynote talk at the inaugural AI Connect Kozhikode meetup', label: 'Keynote' },
+      { src: '/gallery/kozhikode/k2.jpg', cls: 'gk2', alt: 'Members networking before the sessions' },
+      { src: '/gallery/kozhikode/k3.jpg', cls: 'gk3', alt: 'Speaker presenting a live demo with a laptop' },
+      { src: '/gallery/kozhikode/k4.jpg', cls: 'gk4', alt: 'Attendees during a session' },
+      { src: '/gallery/kozhikode/k5.jpg', cls: 'gk5', alt: 'A full room of attendees at the meetup' },
+      { src: '/gallery/kozhikode/k6.jpg', cls: 'gk6', alt: 'Speaker addressing the community' },
+      { src: '/gallery/kozhikode/k7.jpg', cls: 'gk7', alt: 'Attendees in discussion' },
+      { src: '/gallery/kozhikode/k8.jpg', cls: 'gk8', alt: 'Networking during the break' },
+    ],
+  },
+];
+
+const pageTitle = `Gallery — ${site.name}`;
+const pageDesc = 'Photos from AI Connect Kerala meetups, workshops, and community events across Kerala.';
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Nav />
+  <main id="main">
+    <!-- Page header -->
+    <section class="gallery-hero">
+      <div class="container">
+        <span class="eyebrow">Photos</span>
+        <h1>Community Gallery</h1>
+        <p>Real moments from our meetups, workshops, and events across Kerala.</p>
+      </div>
+    </section>
+
+    <!-- Event sections -->
+    <section class="gallery-events">
+      <div class="container">
+        {events.map((ev) => (
+          <article class="event-block" data-reveal>
+            <header class="event-block-head">
+              <h2>{ev.title}</h2>
+              {ev.tag && (
+                <span class="event-tag">
+                  <Icon name={ev.tag.icon} class="event-tag-icon" aria-hidden="true" />
+                  {ev.tag.label}
+                </span>
+              )}
+            </header>
+
+            <ul class="event-block-meta">
+              {ev.badge && <li class="badge-grad">{ev.badge}</li>}
+              {ev.meta.map((m) => (
+                <li class="badge-outline"><Icon name={m.icon} class="badge-icon" aria-hidden="true" />{m.label}</li>
+              ))}
+            </ul>
+
+            <div class="event-grid">
+              {ev.images.map((img) => (
+                <figure class={`event-photo ${img.cls}`}>
+                  <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+                  {img.label && <figcaption class="photo-label">{img.label}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Header band */
+  .gallery-hero {
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--border);
+    padding-block: 64px;
+  }
+  .gallery-hero h1 {
+    margin-top: 12px;
+    font-size: clamp(34px, 5vw, 48px);
+  }
+  .gallery-hero p {
+    margin-top: 16px;
+    max-width: 520px;
+    font-size: 17px;
+    color: var(--text-2);
+  }
+
+  /* Event sections */
+  .gallery-events {
+    padding-block: 72px;
+  }
+  .event-block + .event-block {
+    margin-top: 72px;
+    padding-top: 72px;
+    border-top: 1px solid var(--border);
+  }
+  .event-block-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .event-block-head h2 {
+    font-size: clamp(24px, 3.2vw, 30px);
+  }
+  .event-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--purple-600);
+    background: #fff;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .event-tag-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .event-block-meta {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .badge-grad,
+  .badge-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .badge-grad {
+    background: var(--brand-gradient);
+    color: #fff;
+  }
+  .badge-outline {
+    border: 1px solid var(--border);
+    color: var(--text-2);
+  }
+  .badge-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Masonry grid */
+  .event-grid {
+    margin-top: 32px;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: 196px;
+  }
+  .event-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--bg-softer);
+  }
+  .event-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .event-photo:hover img {
+    transform: scale(1.05);
+  }
+  .photo-label {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gk1 { grid-column: 1; grid-row: 1 / span 2; }
+  .gk2 { grid-column: 2; grid-row: 1; }
+  .gk3 { grid-column: 3; grid-row: 1; }
+  .gk4 { grid-column: 2; grid-row: 2; }
+  .gk5 { grid-column: 3; grid-row: 2; }
+  .gk6 { grid-column: 1; grid-row: 3; }
+  .gk7 { grid-column: 2; grid-row: 3; }
+  .gk8 { grid-column: 3; grid-row: 3; }
+
+  @media (max-width: 900px) {
+    .event-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 180px;
+      grid-auto-flow: dense;
+    }
+    .gk1, .gk2, .gk3, .gk4, .gk5, .gk6, .gk7, .gk8 {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .gk1 {
+      grid-column: 1 / -1;
+      grid-row: span 2;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .event-grid {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 220px;
+    }
+    .gk1 {
+      grid-column: 1;
+      grid-row: span 1;
+    }
+  }
+</style>
