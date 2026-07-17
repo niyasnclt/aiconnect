@@ -80,11 +80,14 @@ const audience = [
             ))}
           </ul>
 
-          <div class="prereq">
-            <Icon name="lucide:lightbulb" class="prereq-icon" aria-hidden="true" />
-            <p><strong>Prerequisites:</strong> Basic understanding of PHP and Laravel is helpful but not required. Bring your laptop to follow along with the live demo.</p>
-          </div>
-        </div>
+    <div class="prereq">
+    <Icon name="lucide:lightbulb" class="prereq-icon" aria-hidden="true" />
+    <p>
+        <strong>Prerequisites:</strong>
+        Basic understanding of PHP and Laravel is helpful but not required.
+        Bring your laptop to follow along with the live demo.
+    </p>
+    </div>
 
         <!-- Right -->
         <aside class="event-side">
@@ -109,9 +112,16 @@ const audience = [
             <a href="#events">Copy</a>
           </div>
 
-          <a class="btn btn-primary register-btn" href={social.whatsapp} target="_blank" rel="noopener">
-            Register Now — Free
-          </a>
+          <div class="register-btn-wrap">
+            <a
+              href="https://luma.com/event/evt-lqwFQ1tcLpLuZzU"
+              class="luma-checkout--button"
+              data-luma-action="checkout"
+              data-luma-event-id="evt-lqwFQ1tcLpLuZzU"
+            >
+              Register for Event
+            </a>
+          </div>
           <p class="register-note">Limited seats available · Free entry for all members</p>
         </aside>
       </div>
@@ -351,11 +361,10 @@ const audience = [
     text-decoration: underline;
   }
 
-  .register-btn {
+  .register-btn-wrap {
     margin-top: 24px;
-    width: 100%;
-    padding-block: 16px;
-    font-size: 16px;
+    display: flex;
+    justify-content: center;
   }
   .register-note {
     margin-top: 14px;

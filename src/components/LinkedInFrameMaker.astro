@@ -1,0 +1,461 @@
+<!-- AI Connect Keralam — LinkedIn Badge Maker (exact match to original bundled HTML) -->
+
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:36px 20px 72px;gap:20px;background:#d8dde3;font-family:'Hanken Grotesk',sans-serif;">
+
+  <!-- header -->
+  <div style="text-align:center;">
+    <img src="/AI-con-Logo.svg" alt="AI Connect Keralam" style="height:50px;width:auto;display:block;margin:0 auto 12px;">
+    <p style="margin:0;font:500 14px/1.5 'Hanken Grotesk',sans-serif;color:#5a6a70;">Fill in the steps below, then click <strong>Download PNG</strong> to save your LinkedIn frame</p>
+  </div>
+
+  <!-- controls card -->
+  <div class="ctrl-card" style="max-width:900px;width:100%;background:#fff;border-radius:20px;box-shadow:0 4px 28px -8px rgba(6,33,39,.18);padding:22px 30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+
+    <!-- step 1: name -->
+    <div class="ctrl-step" style="display:flex;align-items:center;gap:13px;flex:1;min-width:190px;">
+      <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#007AFF,#9D4EDD);display:flex;align-items:center;justify-content:center;flex:none;">
+        <span style="font:700 13px/1 'Hanken Grotesk',sans-serif;color:#fff;">1</span>
+      </div>
+      <div style="flex:1;">
+        <div style="font:700 11px/1 'Hanken Grotesk',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#9aa6a9;margin-bottom:8px;">Your name</div>
+        <input id="nameInput" type="text" placeholder="Enter your name…" maxlength="40" style="width:100%;border:1.5px solid #e0e8ee;border-radius:10px;padding:10px 13px;font:600 15px/1 'Hanken Grotesk',sans-serif;color:#062127;background:#f8fafc;">
+      </div>
+    </div>
+
+    <div class="ctrl-div-v" style="width:1px;height:54px;background:#eaeef2;flex:none;"></div>
+
+    <!-- step 2: download -->
+    <div class="ctrl-dl" style="display:flex;flex-direction:column;align-items:center;gap:10px;flex:none;">
+      <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#9D4EDD,#E9499F);display:flex;align-items:center;justify-content:center;">
+        <span style="font:700 13px/1 'Hanken Grotesk',sans-serif;color:#fff;">2</span>
+      </div>
+      <button id="downloadBtn" type="button" style="background:linear-gradient(110deg,#007AFF,#9D4EDD,#E9499F);border:none;border-radius:12px;padding:13px 22px;font:700 14px/1 'Hanken Grotesk',sans-serif;color:#fff;cursor:pointer;box-shadow:0 8px 20px -8px rgba(0,122,255,.45);white-space:nowrap;min-width:148px;text-align:center;">Download PNG</button>
+    </div>
+  </div>
+
+  <!-- photo tip -->
+  <div class="photo-tip" style="font:500 13px/1 'Hanken Grotesk',sans-serif;color:#8a9aa0;display:flex;align-items:center;gap:7px;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>
+    Click the circle below (or drag your photo onto it) to add your photo
+  </div>
+
+  <!-- frame scaler wrapper -->
+  <div style="width:100%;display:flex;justify-content:center;overflow:hidden;">
+    <div id="frameScaler" style="width:1080px;transform-origin:top center;flex:none;">
+
+      <!-- 1080x1080 frame -->
+      <div id="li-share-frame" style="width:1080px;height:1080px;background:#f1f4f8;position:relative;overflow:hidden;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;">
+
+        <!-- background gradient -->
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,#eef3fb 0%,#f3f5f9 46%,#f1f4f8 100%);"></div>
+        <!-- grid overlay -->
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(20,60,110,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(20,60,110,.06) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(120% 90% at 50% 38%,#000 55%,transparent 100%);-webkit-mask-image:radial-gradient(120% 90% at 50% 38%,#000 55%,transparent 100%);"></div>
+        <!-- blue blob -->
+        <div style="position:absolute;width:560px;height:560px;left:-180px;top:120px;border-radius:50%;background:radial-gradient(circle,#007AFF,transparent 70%);opacity:.08;filter:blur(20px);"></div>
+        <!-- pink blob -->
+        <div style="position:absolute;width:560px;height:560px;right:-180px;top:60px;border-radius:50%;background:radial-gradient(circle,#E9499F,transparent 70%);opacity:.08;filter:blur(24px);"></div>
+        <!-- sparkle decorations -->
+        <svg width="130" height="130" viewBox="0 0 24 24" style="position:absolute;right:54px;top:250px;opacity:.16;" fill="none" stroke="#007AFF" stroke-width="1"><path d="M12 0c1.1 7.3 3.6 9.8 12 12-8.4 2.2-10.9 4.7-12 12-1.1-7.3-3.6-9.8-12-12 8.4-2.2 10.9-4.7 12-12Z"></path></svg>
+        <svg width="84" height="84" viewBox="0 0 24 24" style="position:absolute;left:48px;top:470px;opacity:.16;" fill="none" stroke="#9D4EDD" stroke-width="1.1"><path d="M12 0c1.1 7.3 3.6 9.8 12 12-8.4 2.2-10.9 4.7-12 12-1.1-7.3-3.6-9.8-12-12 8.4-2.2 10.9-4.7 12-12Z"></path></svg>
+        <svg width="56" height="56" viewBox="0 0 24 24" style="position:absolute;right:110px;top:640px;opacity:.18;" fill="none" stroke="#E9499F" stroke-width="1.4"><path d="M12 0c1.1 7.3 3.6 9.8 12 12-8.4 2.2-10.9 4.7-12 12-1.1-7.3-3.6-9.8-12-12 8.4-2.2 10.9-4.7 12-12Z"></path></svg>
+
+        <!-- top bar -->
+        <div style="flex:none;height:9px;background:linear-gradient(90deg,#007AFF,#9D4EDD,#E9499F);position:relative;z-index:3;"></div>
+
+        <!-- content -->
+        <div style="position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:40px 64px 0;">
+
+          <!-- header row: logo + pill -->
+          <div style="display:flex;align-items:center;justify-content:space-between;flex:none;">
+            <img src="/AI-con-Logo.svg" alt="AI Connect Keralam" style="height:56px;width:auto;display:block;">
+            <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #d3deea;border-radius:999px;padding:0 20px;height:42px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:#007AFF;flex:none;"></span>
+              <span style="font:700 13px/1 'Hanken Grotesk',sans-serif;color:#3a4a4e;white-space:nowrap;">FIRST COMMUNITY MEETUP</span>
+            </div>
+          </div>
+
+          <!-- centered column -->
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;">
+
+            <!-- photo circle -->
+            <div style="position:relative;width:392px;height:392px;flex:none;">
+              <div style="position:absolute;inset:-22px;border-radius:50%;background:radial-gradient(circle at 50% 42%,rgba(0,122,255,.26),rgba(233,73,159,.14) 56%,transparent 72%);filter:blur(10px);"></div>
+              <div style="position:absolute;inset:0;border-radius:50%;padding:9px;background:linear-gradient(150deg,#007AFF,#9D4EDD 52%,#E9499F);box-shadow:0 34px 64px -30px rgba(6,33,39,.5);">
+                <div id="photoDrop" style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#f4f7fa;border:6px solid #fff;cursor:pointer;position:relative;">
+                  <img id="photoImage" alt="Your photo" hidden style="width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;">
+                  <div id="photoPlaceholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+                    <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#c4cdd4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+                    <span style="font:600 17px/1.4 'Hanken Grotesk',sans-serif;color:#b8c4cc;text-align:center;padding:0 44px;">Click or drop<br>your photo here</span>
+                  </div>
+                </div>
+                <button id="removePhotoBtn" hidden type="button" title="Remove photo" style="position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(6,33,39,.82);border:3px solid #fff;color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:20;box-shadow:0 4px 14px rgba(0,0,0,.4);">×</button>
+              </div>
+            </div>
+
+            <!-- role badge -->
+            <div style="margin-top:-26px;position:relative;z-index:4;display:flex;justify-content:center;">
+              <div style="background:linear-gradient(115deg,#007AFF,#3C9CFF);border-radius:999px;padding:17px 54px;box-shadow:0 22px 44px -20px rgba(6,33,39,.55);border:4px solid #fff;">
+                <span style="font:800 50px/1 'Hanken Grotesk',sans-serif;color:#fff;letter-spacing:-.01em;">Participant</span>
+              </div>
+            </div>
+
+            <!-- name -->
+            <div style="text-align:center;margin-top:20px;">
+              <h2 id="displayName" style="margin:0;font:800 46px/1 'Hanken Grotesk',sans-serif;letter-spacing:-.02em;color:#062127;white-space:nowrap;">Your Name</h2>
+              <div style="margin-top:12px;font:600 19px/1 'Hanken Grotesk',sans-serif;color:#6a7a7e;white-space:nowrap;">I'll be there, will you?</div>
+            </div>
+
+            <!-- sparkle divider + proud section -->
+            <div style="display:flex;align-items:center;gap:20px;margin-top:22px;width:520px;">
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,#cdd7e0);"></div>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 0c1.1 7.3 3.6 9.8 12 12-8.4 2.2-10.9 4.7-12 12-1.1-7.3-3.6-9.8-12-12 8.4-2.2 10.9-4.7 12-12Z" fill="#9D4EDD"></path></svg>
+              <div style="flex:1;height:1px;background:linear-gradient(90deg,#cdd7e0,transparent);"></div>
+            </div>
+            <div style="text-align:center;margin-bottom:32px;">
+              <div style="font:700 20px/1 'Hanken Grotesk',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6e7b7a;margin-bottom:15px;white-space:nowrap;">Proud to be part of</div>
+              <img src="/AI-con-Logo.svg" alt="AI Connect Keralam" style="height:90px;width:auto;display:block;margin:0 auto;">
+            </div>
+
+          </div><!-- end centered column -->
+        </div><!-- end content -->
+
+        <!-- footer band -->
+        <div style="position:relative;z-index:2;flex:none;background:linear-gradient(90deg,#007AFF,#9D4EDD,#E9499F);padding:3px 0 0;">
+          <div style="background:#fbfcfe;padding:26px 72px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:24px;">
+              <div style="display:flex;align-items:center;gap:13px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+                <div>
+                  <div style="font:800 21px/1 'Hanken Grotesk',sans-serif;color:#062127;">June 27, 2026</div>
+                  <div style="margin-top:6px;font:600 15px/1 'Hanken Grotesk',sans-serif;color:#6a7a7e;">10 AM – 1 PM</div>
+                </div>
+              </div>
+              <div style="width:1px;height:44px;background:#d6dedd;"></div>
+              <div style="display:flex;align-items:center;gap:13px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E9499F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <div style="font:600 16px/1.3 'Hanken Grotesk',sans-serif;color:#3a4a4e;">IOCOD Infotech, Govt. Cyberpark,<br>Sahya Building, Calicut</div>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font:700 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9aa6a9;margin-bottom:9px;">More info</div>
+              <div id="footerUrl" style="font:800 23px/1 'Hanken Grotesk',sans-serif;background:linear-gradient(110deg,#007AFF,#9D4EDD,#E9499F);-webkit-background-clip:text;background-clip:text;color:transparent;">www.aiconnectkeralam.in</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- bottom bar -->
+        <div style="flex:none;height:9px;background:linear-gradient(90deg,#E9499F,#9D4EDD,#007AFF);position:relative;z-index:3;"></div>
+      </div><!-- end frame -->
+    </div><!-- end scaler -->
+  </div><!-- end wrapper -->
+</div><!-- end page -->
+
+<input id="photoFileInput" type="file" accept="image/*" hidden>
+
+<style>
+  *{box-sizing:border-box;}
+  input[id="nameInput"]::placeholder{color:#b0bac0;}
+  input[id="nameInput"]:focus{outline:none;border-color:#007AFF !important;box-shadow:0 0 0 3px rgba(0,122,255,.12) !important;}
+  #downloadBtn{transition:opacity .12s,transform .1s;}
+  #downloadBtn:hover{opacity:.9;}
+  #downloadBtn:active{opacity:.8;transform:translateY(0.5px);}
+  #downloadBtn:disabled{opacity:.6;cursor:wait;}
+  #removePhotoBtn{transition:opacity .12s;}
+  #removePhotoBtn:hover{opacity:.8;}
+  @media(max-width:660px){
+    .ctrl-card{flex-direction:column !important;gap:16px !important;padding:20px !important;}
+    .ctrl-div-v{display:none !important;}
+    .ctrl-step{flex:none !important;width:100% !important;min-width:0 !important;}
+    .ctrl-dl{flex-direction:row !important;align-items:center !important;width:100% !important;}
+    .ctrl-dl button{flex:1 !important;min-width:0 !important;}
+    .photo-tip{display:none !important;}
+  }
+</style>
+
+<script>
+(function(){
+  var photoUrl=null,downloading=false;
+  var nameInput=document.getElementById('nameInput');
+  var displayName=document.getElementById('displayName');
+  var photoDrop=document.getElementById('photoDrop');
+  var photoImage=document.getElementById('photoImage');
+  var photoPlaceholder=document.getElementById('photoPlaceholder');
+  var removeBtn=document.getElementById('removePhotoBtn');
+  var fileInput=document.getElementById('photoFileInput');
+  var downloadBtn=document.getElementById('downloadBtn');
+  var frameScaler=document.getElementById('frameScaler');
+
+  function applyName(){displayName.textContent=nameInput.value.trim()||'Your Name';}
+
+  function loadPhoto(file){
+    if(!file||!file.type.startsWith('image/'))return;
+    var reader=new FileReader();
+    reader.onload=function(e){
+      photoUrl=e.target.result;
+      photoImage.src=photoUrl;photoImage.hidden=false;
+      photoPlaceholder.hidden=true;removeBtn.hidden=false;
+      try{localStorage.setItem('ai-connect-photo',photoUrl);}catch(x){}
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function clearPhoto(){
+    photoUrl=null;photoImage.src='';photoImage.hidden=true;
+    photoPlaceholder.hidden=false;removeBtn.hidden=true;fileInput.value='';
+    try{localStorage.removeItem('ai-connect-photo');}catch(x){}
+  }
+
+  function updateScale(){
+    var avail=Math.min(window.innerWidth-40,720);
+    var scale=Math.min(1,avail/1080);
+    frameScaler.style.transform='scale('+scale+')';
+    frameScaler.style.marginBottom=((scale-1)*1080)+'px';
+  }
+
+  function loadImg(src){
+    return new Promise(function(res){
+      var i=new Image();
+      i.onload=function(){res(i);};
+      i.onerror=function(){res(null);};
+      i.src=src;
+    });
+  }
+
+  async function renderToCanvas(){
+    var W=1080,H=1080,DPR=2;
+    var canvas=document.createElement('canvas');
+    canvas.width=W*DPR;canvas.height=H*DPR;
+    var ctx=canvas.getContext('2d');
+    ctx.scale(DPR,DPR);
+    var dname=nameInput.value.trim()||'Your Name';
+    var logoEl=document.querySelector('img[alt="AI Connect Keralam"]');
+    var results=await Promise.all([
+      logoEl?loadImg(logoEl.src):Promise.resolve(null),
+      photoUrl?loadImg(photoUrl):Promise.resolve(null)
+    ]);
+    var logoImg=results[0],photoImg=results[1];
+
+    function lgrad(x0,y0,x1,y1,stops){
+      var g=ctx.createLinearGradient(x0,y0,x1,y1);
+      stops.forEach(function(s){g.addColorStop(s[0],s[1]);});
+      return g;
+    }
+    function brand(){return lgrad(0,0,W,0,[[0,'#007AFF'],[0.52,'#9D4EDD'],[1,'#E9499F']]);}
+    function pill(x,y,w,h){var r=h/2;ctx.beginPath();ctx.arc(x+r,y+r,r,Math.PI*.5,Math.PI*1.5);ctx.arc(x+w-r,y+r,r,Math.PI*1.5,Math.PI*.5);ctx.closePath();}
+
+    // Background
+    ctx.fillStyle=lgrad(0,0,0,H,[[0,'#eef3fb'],[0.46,'#f3f5f9'],[1,'#f1f4f8']]);
+    ctx.fillRect(0,0,W,H);
+    ctx.save();ctx.strokeStyle='rgba(20,60,110,.06)';ctx.lineWidth=1;
+    for(var x=0;x<=W;x+=54){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(var y=0;y<=H;y+=54){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    ctx.restore();
+
+    // Sparkle decorations
+    function drawSparkle(sx,sy,sz,sc,so,sw){
+      var sc2=sz/24;ctx.save();ctx.globalAlpha=so;
+      ctx.translate(sx,sy);ctx.scale(sc2,sc2);
+      ctx.beginPath();
+      ctx.moveTo(12,0);
+      ctx.bezierCurveTo(13.1,7.3,15.6,9.8,24,12);
+      ctx.bezierCurveTo(15.6,14.2,13.1,16.7,12,24);
+      ctx.bezierCurveTo(10.9,16.7,8.4,14.2,0,12);
+      ctx.bezierCurveTo(8.4,9.8,10.9,7.3,12,0);
+      ctx.closePath();
+      ctx.strokeStyle=sc;ctx.lineWidth=sw;ctx.stroke();
+      ctx.restore();
+    }
+    drawSparkle(W-54-130,250,130,'#007AFF',0.16,1);
+    drawSparkle(48,470,84,'#9D4EDD',0.16,1.1);
+    drawSparkle(W-110-56,640,56,'#E9499F',0.18,1.4);
+
+    // Top bar
+    ctx.fillStyle=brand();ctx.fillRect(0,0,W,9);
+
+    // Logo top-left
+    if(logoImg){var lh=56,lw=logoImg.width*lh/logoImg.height;ctx.drawImage(logoImg,64,40,lw,lh);}
+
+    // "FIRST COMMUNITY MEETUP" pill top-right
+    ctx.save();ctx.font='700 13px "Hanken Grotesk",sans-serif';ctx.textBaseline='middle';
+    var pt='FIRST COMMUNITY MEETUP',ptw=ctx.measureText(pt).width+54;
+    var px=W-64-ptw,py=40;
+    pill(px,py,ptw,42);ctx.fillStyle='#fff';ctx.fill();
+    ctx.strokeStyle='#d3deea';ctx.lineWidth=1;ctx.stroke();
+    ctx.beginPath();ctx.arc(px+22,py+21,4,0,Math.PI*2);ctx.fillStyle='#007AFF';ctx.fill();
+    ctx.fillStyle='#3a4a4e';ctx.textAlign='left';ctx.fillText(pt,px+34,py+21);
+    ctx.restore();
+
+    // Photo circle (centered vertically in content area above footer)
+    // Content area: y=9 (top bar) to y=961 (footer). Center ~=485.
+    // Layout: photo center at ~360, badge below, name, divider, proud+logo
+    var cy=120;
+    var cr=181,cx=W/2,photoY=cy+cr; // photoY=301, photo top=120, bottom=482
+
+    ctx.save();
+    var gl=ctx.createRadialGradient(cx,photoY,0,cx,photoY,cr+55);
+    gl.addColorStop(0,'rgba(0,122,255,.26)');gl.addColorStop(0.5,'rgba(233,73,159,.14)');gl.addColorStop(1,'transparent');
+    ctx.fillStyle=gl;ctx.beginPath();ctx.arc(cx,photoY,cr+55,0,Math.PI*2);ctx.fill();ctx.restore();
+    ctx.save();
+    var rg=lgrad(cx-cr-15,photoY-cr-15,cx+cr+15,photoY+cr+15,[[0,'#007AFF'],[0.52,'#9D4EDD'],[1,'#E9499F']]);
+    ctx.beginPath();ctx.arc(cx,photoY,cr+9,0,Math.PI*2);ctx.fillStyle=rg;ctx.fill();
+    ctx.beginPath();ctx.arc(cx,photoY,cr+6,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.restore();
+    ctx.save();ctx.beginPath();ctx.arc(cx,photoY,cr,0,Math.PI*2);ctx.clip();
+    if(photoImg){
+      var sc=Math.max(cr*2/photoImg.width,cr*2/photoImg.height);
+      var pw=photoImg.width*sc,ph=photoImg.height*sc;
+      ctx.drawImage(photoImg,cx-pw/2,photoY-cr-(ph-cr*2)*.18,pw,ph);
+    }else{
+      ctx.fillStyle='#f4f7fa';ctx.fillRect(cx-cr,photoY-cr,cr*2,cr*2);
+      ctx.fillStyle='#b8c4cc';ctx.font='600 18px "Hanken Grotesk",sans-serif';
+      ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Click circle to add photo',cx,photoY);
+    }
+    ctx.restore();
+    cy=photoY+cr; // cy=482
+
+    // Badge
+    ctx.font='800 50px "Hanken Grotesk",sans-serif';ctx.textBaseline='alphabetic';
+    var bw=ctx.measureText('Participant').width+108,bh=84,bx=cx-bw/2,by=cy-26;
+    ctx.save();ctx.shadowColor='rgba(6,33,39,.35)';ctx.shadowBlur=24;ctx.shadowOffsetY=12;
+    pill(bx,by,bw,bh);
+    ctx.fillStyle=lgrad(bx,by,bx+bw,by,[[0,'#007AFF'],[1,'#3C9CFF']]);ctx.fill();ctx.restore();
+    ctx.save();ctx.strokeStyle='#fff';ctx.lineWidth=4;pill(bx,by,bw,bh);ctx.stroke();ctx.restore();
+    ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Participant',cx,by+bh/2);
+    cy=by+bh; // ~540
+
+    // Name
+    cy+=30;
+    ctx.font='800 46px "Hanken Grotesk",sans-serif';ctx.fillStyle='#062127';
+    ctx.textAlign='center';ctx.textBaseline='alphabetic';
+    ctx.fillText(dname,cx,cy+46);cy+=46;
+    ctx.font='600 19px "Hanken Grotesk",sans-serif';ctx.fillStyle='#6a7a7e';
+    ctx.fillText("I'll be there, will you?",cx,cy+32);cy+=32;
+
+    // Divider + sparkle
+    cy+=26;
+    ctx.save();
+    var dg=ctx.createLinearGradient(cx-260,cy,cx-20,cy);
+    dg.addColorStop(0,'transparent');dg.addColorStop(1,'#cdd7e0');
+    ctx.strokeStyle=dg;ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(cx-260,cy);ctx.lineTo(cx-20,cy);ctx.stroke();
+    dg=ctx.createLinearGradient(cx+20,cy,cx+260,cy);
+    dg.addColorStop(0,'#cdd7e0');dg.addColorStop(1,'transparent');
+    ctx.strokeStyle=dg;ctx.beginPath();ctx.moveTo(cx+20,cy);ctx.lineTo(cx+260,cy);ctx.stroke();
+    ctx.fillStyle='#9D4EDD';ctx.beginPath();
+    ctx.moveTo(cx,cy-11);ctx.bezierCurveTo(cx+2,cy-2,cx+2,cy-2,cx+11,cy);
+    ctx.bezierCurveTo(cx+2,cy+2,cx+2,cy+2,cx,cy+11);
+    ctx.bezierCurveTo(cx-2,cy+2,cx-2,cy+2,cx-11,cy);
+    ctx.bezierCurveTo(cx-2,cy-2,cx-2,cy-2,cx,cy-11);ctx.fill();
+    ctx.restore();
+    cy+=26;
+
+    // PROUD TO BE PART OF + logo (below divider)
+    ctx.save();
+    ctx.font='700 20px "Hanken Grotesk",sans-serif';
+    ctx.fillStyle='#6e7b7a';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+    ctx.fillText('PROUD TO BE PART OF',cx,cy+26);cy+=46;
+    if(logoImg){var bh2=90,bw2=logoImg.width*bh2/logoImg.height;ctx.drawImage(logoImg,cx-bw2/2,cy,bw2,bh2);}
+    ctx.restore();
+
+    // Footer
+    var fh=110,fy=H-fh-9;
+    ctx.fillStyle=brand();ctx.fillRect(0,fy,W,3);
+    ctx.fillStyle='#fbfcfe';ctx.fillRect(0,fy+3,W,fh);
+    var fm=fy+3+fh/2;ctx.textBaseline='middle';
+    // calendar icon
+    ctx.save();ctx.strokeStyle='#007AFF';ctx.lineWidth=1.8;
+    var ci={x:72,y:fm-13,w:22,h:20};
+    ctx.strokeRect(ci.x,ci.y,ci.w,ci.h);
+    ctx.beginPath();ctx.moveTo(ci.x+7,ci.y);ctx.lineTo(ci.x+7,ci.y-5);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(ci.x+15,ci.y);ctx.lineTo(ci.x+15,ci.y-5);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(ci.x,ci.y+7);ctx.lineTo(ci.x+ci.w,ci.y+7);ctx.stroke();ctx.restore();
+    ctx.font='800 21px "Hanken Grotesk",sans-serif';ctx.fillStyle='#062127';
+    ctx.textAlign='left';ctx.fillText('June 27, 2026',104,fm-8);
+    ctx.font='600 15px "Hanken Grotesk",sans-serif';ctx.fillStyle='#6a7a7e';
+    ctx.fillText('10 AM \u2013 1 PM',104,fm+12);
+    ctx.save();ctx.strokeStyle='#d6dedd';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(268,fm-22);ctx.lineTo(268,fm+22);ctx.stroke();ctx.restore();
+    // pin icon (map pin shape)
+    ctx.save();ctx.strokeStyle='#E9499F';ctx.lineWidth=1.8;ctx.lineJoin='round';
+    var pi={x:292,y:fm};// icon center-bottom anchor
+    ctx.beginPath();
+    // teardrop: arc from bottom going around the top
+    ctx.arc(pi.x,pi.y-11,7,0.52*Math.PI,Math.PI*2.48);
+    ctx.lineTo(pi.x,pi.y+2);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();ctx.arc(pi.x,pi.y-11,2.5,0,Math.PI*2);ctx.stroke();
+    ctx.restore();
+    ctx.font='600 15px "Hanken Grotesk",sans-serif';ctx.fillStyle='#3a4a4e';
+    ctx.fillText('IOCOD Infotech, Govt. Cyberpark,',312,fm-7);
+    ctx.fillText('Sahya Building, Calicut',312,fm+12);
+    // more info
+    ctx.textAlign='right';
+    ctx.font='700 12px "Hanken Grotesk",sans-serif';ctx.fillStyle='#9aa6a9';
+    ctx.fillText('More info',W-64,fm-8);
+    ctx.font='800 23px "Hanken Grotesk",sans-serif';
+    var urlText='www.aiconnectkeralam.in';
+    var urlW=ctx.measureText(urlText).width;
+    ctx.fillStyle=lgrad(W-64-urlW,0,W-64,0,[[0,'#007AFF'],[0.52,'#9D4EDD'],[1,'#E9499F']]);
+    ctx.fillText(urlText,W-64,fm+12);
+
+    // Bottom bar
+    ctx.fillStyle=lgrad(0,0,W,0,[[0,'#E9499F'],[0.52,'#9D4EDD'],[1,'#007AFF']]);
+    ctx.fillRect(0,H-9,W,9);
+    return canvas;
+  }
+
+  async function downloadFrame(){
+    if(downloading)return;
+    downloading=true;downloadBtn.disabled=true;downloadBtn.textContent='Saving\u2026';
+    try{
+      var canvas=await renderToCanvas();
+      // iOS Safari does not honour the `download` attribute — open in new tab instead
+      var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+      if(isIOS){
+        var dataURL=canvas.toDataURL('image/png');
+        var win=window.open('','_blank');
+        if(win){
+          win.document.write('<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Save your badge</title><style>body{margin:0;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100dvh;gap:20px;padding:24px;}img{max-width:100%;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.5);}p{color:#ccc;font:500 15px/1.5 -apple-system,sans-serif;text-align:center;margin:0;}</style></head><body><img src="'+dataURL+'"><p>Long-press the image and tap <strong style="color:#fff">Save to Photos</strong></p></body></html>');
+          win.document.close();
+        } else {
+          alert('Pop-up was blocked. Please allow pop-ups for this site, then try again.');
+        }
+      } else {
+        // Desktop & Android: blob URL + a[download] is reliable
+        canvas.toBlob(function(blob){
+          var url=URL.createObjectURL(blob);
+          var a=document.createElement('a');
+          a.href=url;a.download='AI-Connect-Keralam-Frame.png';
+          document.body.appendChild(a);a.click();document.body.removeChild(a);
+          setTimeout(function(){URL.revokeObjectURL(url);},2000);
+        },'image/png');
+      }
+    }catch(err){
+      console.error('Canvas render error:',err);
+      alert('Could not generate image. Please screenshot the frame instead.');
+    }
+    downloading=false;downloadBtn.disabled=false;downloadBtn.textContent='Download PNG';
+  }
+
+  // Event listeners
+  nameInput.addEventListener('input',applyName);
+  photoDrop.addEventListener('click',function(){fileInput.click();});
+  fileInput.addEventListener('change',function(e){loadPhoto(e.target.files[0]);});
+  removeBtn.addEventListener('click',function(e){e.stopPropagation();clearPhoto();});
+  downloadBtn.addEventListener('click',downloadFrame);
+  photoDrop.addEventListener('dragover',function(e){e.preventDefault();photoDrop.style.outline='3px dashed #007AFF';});
+  photoDrop.addEventListener('dragleave',function(){photoDrop.style.outline='';});
+  photoDrop.addEventListener('drop',function(e){
+    e.preventDefault();photoDrop.style.outline='';
+    if(e.dataTransfer&&e.dataTransfer.files)loadPhoto(e.dataTransfer.files[0]);
+  });
+  window.addEventListener('resize',updateScale);
+
+  // Init
+  try{
+    var saved=localStorage.getItem('ai-connect-photo');
+    if(saved){photoUrl=saved;photoImage.src=saved;photoImage.hidden=false;photoPlaceholder.hidden=true;removeBtn.hidden=false;}
+  }catch(x){}
+  updateScale();
+})();
+</script>
